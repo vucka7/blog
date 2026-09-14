@@ -1,5 +1,6 @@
 ---
 title: "Every day life style"
+site-url: https://vucka7.github.io/blog/
 listing:
   contents: posts
   feed: true
