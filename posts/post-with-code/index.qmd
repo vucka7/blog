@@ -1,9 +1,9 @@
 ---
-title: "Post With Code"
-author: "Harlow Malloc"
+title: "Day 1 of the short Odissey"
+author: "Eva Rogelj"
 date: "2026-09-14"
 categories: [news, code, analysis]
 image: "image.jpg"
 ---
 
-This is a post with executable code.
+Day 1

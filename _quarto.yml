@@ -4,7 +4,7 @@ project:
 website:
   description: "A blog built with Quarto"
   site-url: https://your-website-url.example.com # you must change this appropriately for RSS feeds to work properly
-  title: "blog"
+  title: "Reproducible research course"
   navbar:
     right:
       - about.qmd
@@ -15,9 +15,12 @@ website:
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      light: flatly
+      dark: darkly
     css: styles.css
+
+execute:
+  freeze: auto
 
 
 

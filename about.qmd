@@ -1,6 +1,6 @@
 ---
 title: "About"
-image: profile.jpg
+image: posts/welcome/bean_intro.jpg
 about:
   template: jolla
   links:
@@ -16,4 +16,4 @@ about:
 
 ---
 
-About this blog
+This blog is a daily recap of our Reproducible Research course
