@@ -3,7 +3,7 @@ title: "Day 2 of the short Odissey"
 author: "Eva Rogelj"
 date: "2026-09-14"
 categories: [news, code, analysis]
-image: "image.jpg"
+image: "odissey_day2.jpg"
 ---
 
-Day 1
+Day 2
