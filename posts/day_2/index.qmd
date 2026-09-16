@@ -37,12 +37,9 @@ version = "0.1.0"
 6[dependencies]
 ```
 
-1
-Overview section of the environment.
-2
-Added channels - these are the sources we allow for our dependencies/ tools.
-3
-The name of the environment.
+1 Overview section of the environment.
+2 Added channels - these are the sources we allow for our dependencies/ tools.
+3 The name of the environment.
 4
 Operating system the environment is optimised for.
 5
