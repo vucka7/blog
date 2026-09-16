@@ -1,31 +1,24 @@
 [
   {
-    "objectID": "posts/day_5/index.html",
-    "href": "posts/day_5/index.html",
-    "title": "Day 2 of the short Odissey",
-    "section": "",
-    "text": "Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)"
-  },
-  {
     "objectID": "posts/day_3/index.html",
     "href": "posts/day_3/index.html",
-    "title": "Day 3 of the 5-day Odissey",
+    "title": "Is a Swedish Valhund a Corgi?",
     "section": "",
-    "text": "Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)"
+    "text": "Is a Swedish Valhund a Corgi? The Truth Behind the Confusion\nIf you’ve seen a Swedish Valhund, you might have done a double-take. “Is that a corgi?” you might ask. The answer is both yes and no—and the story is more interesting than you think.\nWhat They Have in Common\nThe Swedish Valhund and the Welsh Corgi do share striking similarities. Both are small herding dogs with short legs, long bodies, and sturdy builds. They were both bred to herd livestock (cattle for the Valhund, sheep for the Corgi) and have that characteristic low-to-the-ground frame that helped them nip at heels without getting kicked. Both are intelligent, alert, and full of personality. If you squint, you can definitely see the family resemblance.\nBut They Are NOT the Same Breed\nHere’s where they diverge:\nOrigin: The Swedish Valhund comes from Sweden (hence the name), where it’s been herding cattle for over a thousand years. The Welsh Corgi originates from Wales and comes in two varieties: Pembroke and Cardigan.\nAppearance: While both are short-legged, the Valhund is more compact and muscular. The Corgi tends to have a more fox-like face, while the Valhund has a more wolf-like expression. The Valhund’s coat is typically gray or red with white markings, whereas Corgis come in red, sable, fawn, or black and tan.\nTail: This is a key difference! Swedish Valhunds have a naturally short, fox-like tail. Welsh Corgis (especially Pembrokes) often have their tails docked, though naturally they’re longer and fuller.\nSize: Valhunds are slightly smaller and lighter than Corgis, making them even more agile herders.\nTemperament: While both are smart and spirited, the Valhund tends to be slightly more independent and has a stronger herding instinct. Corgis are often more affectionate and better known as companion dogs, especially after their association with British royalty.\nThe Historical Mystery\nInterestingly, some dog historians believe the breeds may share ancient Viking ancestry. Swedish traders and raiders may have brought their dogs to Wales, or vice versa. However, they developed independently over centuries, becoming distinct breeds adapted to their respective countries’ landscapes and livestock needs.\nThe Bottom Line\nA Swedish Valhund is not a Corgi, but they’re distant cousins in the herding dog family. Think of it like asking if a husky is a malamute—similar in some ways, but distinctly different breeds with their own history and characteristics.\nIf you’re considering one as a pet, remember: while they look adorable and compact, both breeds need regular exercise, mental stimulation, and can be stubborn herders at heart. They’ll try to herd your kids, your cats, and probably your guests’ ankles if given the chance!\n\n\n\n\n\nCorgi\n\n\n\n\n\n\nSwedish Valhund"
   },
   {
     "objectID": "posts/day_2/index.html",
     "href": "posts/day_2/index.html",
-    "title": "Day 2 of the 5-day Odissey",
+    "title": "Traits",
     "section": "",
-    "text": "Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)\n\nwget -qO- https://pixi.sh/install.sh | sh\n\nEverytime you need to initiate a pixi environment in the same folder, you’re working in\n\npixi init name_pixi_training -c conda-forge -c bioconda\n\nThere will be a pixi.toml file. It would look a little like this\n\n1[workspace]\n2channels = [\"conda-forge\", \"bioconda\"]\n3name = \"amrei_pixi_training\"\n4platforms = [\"linux-64\"]\nversion = \"0.1.0\"\n\n5[tasks]\n\n6[dependencies]\n\n1 Overview section of the environment. 2 Added channels - these are the sources we allow for our dependencies/ tools. 3 The name of the environment. 4 Operating system the environment is optimised for. 5 This is where we can define tasks - interesting, but not covered in this course. 6 Here will be the list of tool installed within the environment (once we have added them).\npixi.lock The .lock file give you information on the channels you have decided to add, as well as the information on where the packages were downloaded from, license information, md5 information, and more.\nIMPORTANT: Do not delete the .toml or .lock files, or you will break your environment!\nIf you want to add a dependency, you use add\n\npixi add quarto\n\nYou could enter an environment with\n\npixi shell\n\nYou exit the environment with exit"
+    "text": "Swedish Vallhunds are self-confident, lively, inquisitive, courageous, loyal and independent. They are agile, fast, enthusiastic, muscular, energetic, and eager to please, as well as friendly, healthy and hardy. SVs have delightful personalities. Their temperaments are sound, loving, and sweet. They are calm and adaptable, and delight in sharing your life. The SV is alert, watchful and will stand his ground to observe what is happening, but is not aggressive. While the SV is easily trained, he requires consistent positive reinforcement and leadership from his owner from an early age. The breed has a wonderful sense of humor, and is often chatty in nature. These dogs do not hesitate to announce strangers or their joy of living. Being a Spitz breed, they sometimes have a tendency to bark; however, this can be corrected with training. They find new uses for toys and are quite good at problem-solving. They enjoy being stimulated by learning new tasks."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Every day life style",
+    "title": "History of Swedish Valhund",
     "section": "",
-    "text": "Day 2 of the 5-day Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1 of the 5-day Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3 of the 5-day Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2 of the 5-day Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2 of the short Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\nNo matching items"
+    "text": "Traits\n\n\n\npersonality\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nOrigins\n\n\n\nhistory\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nIs a Swedish Valhund a Corgi?\n\n\n\nbreed comparison\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -37,15 +30,8 @@
   {
     "objectID": "posts/day_1/index.html",
     "href": "posts/day_1/index.html",
-    "title": "Day 1 of the 5-day Odissey",
+    "title": "Origins",
     "section": "",
-    "text": "Day 1 - only beginning to dream about being a bioinformatician\nData Management and reproducible research \nFAIR principles\nFAIR principles rely on good data management practices in all phases of research:\nResearch documentation Data organisation Information security Ethics and legislation\n\n\n\nAlt text\n\n\nBest practices for file organisation\n\nThere is a folder for the raw data, which does not get altered.\nCode is kept separate from data.\nUse a version control system (at least for code) – e.g. git.\nThere should be a README in every directory, describing the purpose of the directory and its contents.\nUse file naming schemes that makes it easy to find files and understand what they are (for humans and machines) and document them.\nUse non-proprietary formats – .csv rather than .xlsx\n\nLiterate programming - Document your methods and workflows. - Document where and when you downloaded data. - Document the versions of the software that you ran.\nFuture learnings in the course: - Version control - environment managers - containers in bioinformatics - workflow manager\nGithub: Useful commands:\n\n# CLONE A REPO\ngit clone https://github.com/username/repo.git\n\n# BASIC WORKFLOW\ngit status                    # See what changed\ngit add .                     # Stage all changes\ngit commit -m \"message\"       # Commit with message\ngit push                      # Push to GitHub\ngit pull                      # Pull latest changes\n\n# BRANCHES\ngit branch                    # List branches\ngit branch new-branch         # Create new branch\ngit checkout new-branch       # Switch to branch\ngit checkout -b new-branch    # Create and switch\ngit push origin new-branch    # Push branch to GitHub\n\n# UNDO CHANGES\ngit restore filename          # Undo changes to file\ngit reset HEAD~1              # Undo last commit (keep changes)\ngit revert HEAD               # Undo last commit (create new commit)\n\n# VIEW HISTORY\ngit log                       # See commits\ngit log --oneline             # Shorter view\ngit diff                      # See what changed\n\n# MERGE BRANCHES\ngit checkout main             # Switch to main\ngit merge new-branch          # Merge branch into main\n\n# STASH (TEMPORARY SAVE)\ngit stash                     # Save changes temporarily\ngit stash pop                 # Restore changes"
-  },
-  {
-    "objectID": "posts/day_4/index.html",
-    "href": "posts/day_4/index.html",
-    "title": "Day 2 of the 5-day Odissey",
-    "section": "",
-    "text": "Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)"
+    "text": "The Swedish Vallhund (SV) is a very old Spitz type breed known since the time of the Vikings. Sweden states the Swedish Vallhund dates back over 1000 years to the time of the Vikings when it may have been known as the “Vikingarnas Dog”. During the eighth or ninth century, historians state either the SV was brought to Wales or the Corgi was taken to Sweden, hence the similarities between the two breeds. The historian, Clifford Hubbard thought the Swedish Vallhund was the older of the two breeds. The SV is an alert, eager to please and learn, energetic, hardy dog that is longer legged, but not as long in body, nor as stocky as the Corgi. The Swedish Vallhund was bred to work on farms and ranches and originally herded cattle. Sweden has declared that this breed is a “Lantras”. This designation includes the exhibition of qualities such as: long life, patience to hardship, and hardiness."
   }
 ]
