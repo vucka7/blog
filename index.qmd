@@ -1,5 +1,5 @@
 ---
-title: "Every day life style"
+title: "History of Swedish Valhund"
 listing:
   contents: posts
   feed: true

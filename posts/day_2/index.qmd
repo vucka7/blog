@@ -1,68 +1,9 @@
 ---
-title: "Day 2 of the 5-day Odissey"
+title: "Traits"
 author: "Eva Rogelj"
 date: "2026-09-14"
-categories: [news, code, analysis]
-image: "odissey_day2.jpg"
+categories: [personality]
+image: "characteristics.jpg"
 ---
 
-Day 2
-Lecture 1: setting up an environment. 
-Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)
-
-```{r}
-#| eval: false
-wget -qO- https://pixi.sh/install.sh | sh
-```
-
-Everytime you need to initiate a pixi environment in the same folder, you're working in
-
-```{r}
-#| eval: false
-pixi init name_pixi_training -c conda-forge -c bioconda
-```
-
-There will be a pixi.toml file. It would look a little like this
-
-```{r}
-#| eval: false
-1[workspace]
-2channels = ["conda-forge", "bioconda"]
-3name = "amrei_pixi_training"
-4platforms = ["linux-64"]
-version = "0.1.0"
-
-5[tasks]
-
-6[dependencies]
-```
-
-1 Overview section of the environment.
-2 Added channels - these are the sources we allow for our dependencies/ tools.
-3 The name of the environment.
-4
-Operating system the environment is optimised for.
-5
-This is where we can define tasks - interesting, but not covered in this course.
-6
-Here will be the list of tool installed within the environment (once we have added them).
-
-pixi.lock
-The .lock file give you information on the channels you have decided to add, as well as the information on where the packages were downloaded from, license information, md5 information, and more.
-
-IMPORTANT: Do not delete the .toml or .lock files, or you will break your environment!
-
-If you want to add a dependency, you use add
-
-```{r}
-#| eval: false
-pixi add quarto
-```
-
-You could enter an environment with 
-```{r}
-#| eval: false
-pixi shell
-```
-
-You exit the environment with exit
+Swedish Vallhunds are self-confident, lively, inquisitive, courageous, loyal and independent. They are agile, fast, enthusiastic, muscular, energetic, and eager to please, as well as friendly, healthy and hardy. SVs have delightful personalities. Their temperaments are sound, loving, and sweet. They are calm and adaptable, and delight in sharing your life. The SV is alert, watchful and will stand his ground to observe what is happening, but is not aggressive. While the SV is easily trained, he requires consistent positive reinforcement and leadership from his owner from an early age. The breed has a wonderful sense of humor, and is often chatty in nature. These dogs do not hesitate to announce strangers or their joy of living. Being a Spitz breed, they sometimes have a tendency to bark; however, this can be corrected with training. They find new uses for toys and are quite good at problem-solving. They enjoy being stimulated by learning new tasks.

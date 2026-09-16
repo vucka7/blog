@@ -4,14 +4,10 @@ project:
 website:
   description: "A blog built with Quarto"
   site-url: https://vucka7.github.io/blog/
-  title: "Reproducible research course"
+  title: "Swedish Valhund"
   navbar:
     right:
       - about.qmd
-      - icon: github
-        href: https://github.com/
-      - icon: bluesky
-        href: https://bsky.app/
 format:
   html:
     theme:
