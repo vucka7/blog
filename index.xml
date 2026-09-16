@@ -90,6 +90,18 @@ font-style: inherit;">5</span>[tasks]</span>
 background-color: null;
 font-style: inherit;">6</span>[dependencies]</span></code></pre></div></div>
 </div>
+<p>1 Overview section of the environment. 2 Added channels - these are the sources we allow for our dependencies/ tools. 3 The name of the environment. 4 Operating system the environment is optimised for. 5 This is where we can define tasks - interesting, but not covered in this course. 6 Here will be the list of tool installed within the environment (once we have added them).</p>
+<p>pixi.lock The .lock file give you information on the channels you have decided to add, as well as the information on where the packages were downloaded from, license information, md5 information, and more.</p>
+<p>IMPORTANT: Do not delete the .toml or .lock files, or you will break your environment!</p>
+<p>If you want to add a dependency, you use add</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">pixi add quarto</span></code></pre></div></div>
+</div>
+<p>You could enter an environment with</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">pixi shell</span></code></pre></div></div>
+</div>
+<p>You exit the environment with exit</p>
 
 
 
