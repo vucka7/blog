@@ -1,6 +1,6 @@
 ---
 title: "About"
-image: posts/welcome/bean_intro.jpg
+image: bean_intro.jpg
 about:
   template: jolla
   links:

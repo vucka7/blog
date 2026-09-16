@@ -1,0 +1,15 @@
+{
+  "hash": "defab5894ccf52f45dec5da8e6879439",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Day 1 of the 5-day Odissey\"\nauthor: \"Eva Rogelj\"\ndate: \"2026-09-14\"\ncategories: [news, code, analysis]\nimage: \"suitcase.jpeg\"\n---\n\nDay 1 - only beginning to dream about being a bioinformatician\n\nData Management and reproducible research\n![Alt text](data_life_cycle.png)\n\nFAIR principles\n\nFAIR principles rely on good data management practices in all phases of research:\n\nResearch documentation\nData organisation\nInformation security\nEthics and legislation\n\n![Alt text](fair-data-principles.webp)\n\nBest practices for file organisation\n\n- There is a folder for the raw data, which does not get altered.\n- Code is kept separate from data.\n- Use a version control system (at least for code) – e.g. git.\n- There should be a README in every directory, describing the purpose of the directory and its contents.\n- Use file naming schemes that makes it easy to find files and understand what they are (for humans and machines) and document them.\n- Use non-proprietary formats – .csv rather than .xlsx\n\nLiterate programming\n- Document your methods and workflows.\n- Document where and when you downloaded data.\n- Document the versions of the software that you ran.\n\nFuture learnings in the course:\n- Version control\n- environment managers\n- containers in bioinformatics\n- workflow manager\n\nGithub:\nUseful commands:\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# CLONE A REPO\ngit clone https://github.com/username/repo.git\n\n# BASIC WORKFLOW\ngit status                    # See what changed\ngit add .                     # Stage all changes\ngit commit -m \"message\"       # Commit with message\ngit push                      # Push to GitHub\ngit pull                      # Pull latest changes\n\n# BRANCHES\ngit branch                    # List branches\ngit branch new-branch         # Create new branch\ngit checkout new-branch       # Switch to branch\ngit checkout -b new-branch    # Create and switch\ngit push origin new-branch    # Push branch to GitHub\n\n# UNDO CHANGES\ngit restore filename          # Undo changes to file\ngit reset HEAD~1              # Undo last commit (keep changes)\ngit revert HEAD               # Undo last commit (create new commit)\n\n# VIEW HISTORY\ngit log                       # See commits\ngit log --oneline             # Shorter view\ngit diff                      # See what changed\n\n# MERGE BRANCHES\ngit checkout main             # Switch to main\ngit merge new-branch          # Merge branch into main\n\n# STASH (TEMPORARY SAVE)\ngit stash                     # Save changes temporarily\ngit stash pop                 # Restore changes\n```\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

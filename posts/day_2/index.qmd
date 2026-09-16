@@ -1,5 +1,5 @@
 ---
-title: "Day 2 of the short Odissey"
+title: "Day 2 of the 5-day Odissey"
 author: "Eva Rogelj"
 date: "2026-09-14"
 categories: [news, code, analysis]
@@ -9,3 +9,30 @@ image: "odissey_day2.jpg"
 Day 2
 Lecture 1: setting up an environment. 
 Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)
+
+```{r}
+#| eval: false
+wget -qO- https://pixi.sh/install.sh | sh
+```
+
+Everytime you need to initiate a pixi environment in the same folder, you're working in
+
+```{r}
+#| eval: false
+pixi init name_pixi_training -c conda-forge -c bioconda
+```
+
+There will be a pixi.toml file. It would look a little like this
+
+```{r}
+#| eval: false
+1[workspace]
+2channels = ["conda-forge", "bioconda"]
+3name = "amrei_pixi_training"
+4platforms = ["linux-64"]
+version = "0.1.0"
+
+5[tasks]
+
+6[dependencies]
+```

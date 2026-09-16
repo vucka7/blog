@@ -1,0 +1,15 @@
+{
+  "hash": "a7552b4f3003f505269555d2276a65f5",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Day 2 of the 5-day Odissey\"\nauthor: \"Eva Rogelj\"\ndate: \"2026-09-14\"\ncategories: [news, code, analysis]\nimage: \"odissey_day2.jpg\"\n---\n\nDay 2\nLecture 1: setting up an environment. \nPixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)\n\n\n::: {.cell}\n\n```{.r .cell-code}\nwget -qO- https://pixi.sh/install.sh | sh\n```\n:::\n\n\nEverytime you need to initiate a pixi environment in the same folder, you're working in\n\n\n::: {.cell}\n\n```{.r .cell-code}\npixi init name_pixi_training -c conda-forge -c bioconda\n```\n:::\n\n\nThere will be a pixi.toml file. It would look a little like this\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1[workspace]\n2channels = [\"conda-forge\", \"bioconda\"]\n3name = \"amrei_pixi_training\"\n4platforms = [\"linux-64\"]\nversion = \"0.1.0\"\n\n5[tasks]\n\n6[dependencies]\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
