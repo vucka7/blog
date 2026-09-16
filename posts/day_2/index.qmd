@@ -36,3 +36,35 @@ version = "0.1.0"
 
 6[dependencies]
 ```
+
+1
+Overview section of the environment.
+2
+Added channels - these are the sources we allow for our dependencies/ tools.
+3
+The name of the environment.
+4
+Operating system the environment is optimised for.
+5
+This is where we can define tasks - interesting, but not covered in this course.
+6
+Here will be the list of tool installed within the environment (once we have added them).
+
+pixi.lock
+The .lock file give you information on the channels you have decided to add, as well as the information on where the packages were downloaded from, license information, md5 information, and more.
+
+IMPORTANT: Do not delete the .toml or .lock files, or you will break your environment!
+
+If you want to add a dependency, you use add
+
+```{r}
+#|eval: false
+pixi add quarto
+```
+
+You could enter an environment with 
+```{r}
+pixi shell
+```
+
+You exit the environment with exit
