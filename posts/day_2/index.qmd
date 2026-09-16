@@ -55,13 +55,13 @@ IMPORTANT: Do not delete the .toml or .lock files, or you will break your enviro
 If you want to add a dependency, you use add
 
 ```{r}
-#|eval: false
+#| eval: false
 pixi add quarto
 ```
 
 You could enter an environment with 
 ```{r}
-#|eval: false
+#| eval: false
 pixi shell
 ```
 
