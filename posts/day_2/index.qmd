@@ -64,6 +64,7 @@ pixi add quarto
 
 You could enter an environment with 
 ```{r}
+#|eval: false
 pixi shell
 ```
 
