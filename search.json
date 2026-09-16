@@ -1,24 +1,31 @@
 [
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Day 1 of the short Odissey",
+    "objectID": "posts/day_5/index.html",
+    "href": "posts/day_5/index.html",
+    "title": "Day 2 of the short Odissey",
     "section": "",
-    "text": "Day 1"
+    "text": "Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)"
+  },
+  {
+    "objectID": "posts/day_3/index.html",
+    "href": "posts/day_3/index.html",
+    "title": "Day 3 of the 5-day Odissey",
+    "section": "",
+    "text": "Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)"
   },
   {
     "objectID": "posts/day_2/index.html",
     "href": "posts/day_2/index.html",
-    "title": "Day 2 of the short Odissey",
+    "title": "Day 2 of the 5-day Odissey",
     "section": "",
-    "text": "Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)"
+    "text": "Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)\n\nwget -qO- https://pixi.sh/install.sh | sh\n\nEverytime you need to initiate a pixi environment in the same folder, you’re working in\n\npixi init name_pixi_training -c conda-forge -c bioconda\n\nThere will be a pixi.toml file. It would look a little like this\n\n1[workspace]\n2channels = [\"conda-forge\", \"bioconda\"]\n3name = \"amrei_pixi_training\"\n4platforms = [\"linux-64\"]\nversion = \"0.1.0\"\n\n5[tasks]\n\n6[dependencies]"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Every day life style",
     "section": "",
-    "text": "Hello it’s me\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2 of the short Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1 of the short Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nSep 11, 2026\n\n\nEva Rogelj\n\n\n\n\n\nNo matching items"
+    "text": "Day 2 of the 5-day Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1 of the 5-day Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3 of the 5-day Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2 of the 5-day Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2 of the short Odissey\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nSep 14, 2026\n\n\nEva Rogelj\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -28,10 +35,17 @@
     "text": "This blog is a daily recap of our Reproducible Research course"
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "posts/day_1/index.html",
+    "href": "posts/day_1/index.html",
+    "title": "Day 1 of the 5-day Odissey",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "Day 1 - only beginning to dream about being a bioinformatician\nData Management and reproducible research \nFAIR principles\nFAIR principles rely on good data management practices in all phases of research:\nResearch documentation Data organisation Information security Ethics and legislation\n\n\n\nAlt text\n\n\nBest practices for file organisation\n\nThere is a folder for the raw data, which does not get altered.\nCode is kept separate from data.\nUse a version control system (at least for code) – e.g. git.\nThere should be a README in every directory, describing the purpose of the directory and its contents.\nUse file naming schemes that makes it easy to find files and understand what they are (for humans and machines) and document them.\nUse non-proprietary formats – .csv rather than .xlsx\n\nLiterate programming - Document your methods and workflows. - Document where and when you downloaded data. - Document the versions of the software that you ran.\nFuture learnings in the course: - Version control - environment managers - containers in bioinformatics - workflow manager\nGithub: Useful commands:\n\n# CLONE A REPO\ngit clone https://github.com/username/repo.git\n\n# BASIC WORKFLOW\ngit status                    # See what changed\ngit add .                     # Stage all changes\ngit commit -m \"message\"       # Commit with message\ngit push                      # Push to GitHub\ngit pull                      # Pull latest changes\n\n# BRANCHES\ngit branch                    # List branches\ngit branch new-branch         # Create new branch\ngit checkout new-branch       # Switch to branch\ngit checkout -b new-branch    # Create and switch\ngit push origin new-branch    # Push branch to GitHub\n\n# UNDO CHANGES\ngit restore filename          # Undo changes to file\ngit reset HEAD~1              # Undo last commit (keep changes)\ngit revert HEAD               # Undo last commit (create new commit)\n\n# VIEW HISTORY\ngit log                       # See commits\ngit log --oneline             # Shorter view\ngit diff                      # See what changed\n\n# MERGE BRANCHES\ngit checkout main             # Switch to main\ngit merge new-branch          # Merge branch into main\n\n# STASH (TEMPORARY SAVE)\ngit stash                     # Save changes temporarily\ngit stash pop                 # Restore changes"
+  },
+  {
+    "objectID": "posts/day_4/index.html",
+    "href": "posts/day_4/index.html",
+    "title": "Day 2 of the 5-day Odissey",
+    "section": "",
+    "text": "Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)"
   }
 ]

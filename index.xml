@@ -12,9 +12,264 @@
 <generator>quarto-1.10.18</generator>
 <lastBuildDate>Mon, 14 Sep 2026 00:00:00 GMT</lastBuildDate>
 <item>
-  <title>Day 2 of the short Odissey</title>
+  <title>Day 2 of the 5-day Odissey</title>
   <dc:creator>Eva Rogelj</dc:creator>
   <link>https://vucka7.github.io/blog/posts/day_2/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">wget <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>qO<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> https<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">//</span>pixi.sh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>install.sh <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> sh</span></code></pre></div></div>
+</div>
+<p>Everytime you need to initiate a pixi environment in the same folder, you’re working in</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">pixi init name_pixi_training <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>c conda<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>forge <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>c bioconda</span></code></pre></div></div>
+</div>
+<p>There will be a pixi.toml file. It would look a little like this</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>[workspace]</span>
+<span id="cb3-2"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>channels <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"conda-forge"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bioconda"</span>]</span>
+<span id="cb3-3"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>name <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"amrei_pixi_training"</span></span>
+<span id="cb3-4"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>platforms <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"linux-64"</span>]</span>
+<span id="cb3-5">version <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0.1.0"</span></span>
+<span id="cb3-6"></span>
+<span id="cb3-7"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>[tasks]</span>
+<span id="cb3-8"></span>
+<span id="cb3-9"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>[dependencies]</span></code></pre></div></div>
+</div>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://vucka7.github.io/blog/posts/day_2/</guid>
+  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://vucka7.github.io/blog/posts/day_2/odissey_day2.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Day 1 of the 5-day Odissey</title>
+  <dc:creator>Eva Rogelj</dc:creator>
+  <link>https://vucka7.github.io/blog/posts/day_1/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>Day 1 - only beginning to dream about being a bioinformatician</p>
+<p>Data Management and reproducible research <img src="https://vucka7.github.io/blog/posts/day_1/data_life_cycle.png" class="img-fluid" alt="Alt text"></p>
+<p>FAIR principles</p>
+<p>FAIR principles rely on good data management practices in all phases of research:</p>
+<p>Research documentation Data organisation Information security Ethics and legislation</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vucka7.github.io/blog/posts/day_1/fair-data-principles.webp" class="img-fluid figure-img"></p>
+<figcaption>Alt text</figcaption>
+</figure>
+</div>
+<p>Best practices for file organisation</p>
+<ul>
+<li>There is a folder for the raw data, which does not get altered.</li>
+<li>Code is kept separate from data.</li>
+<li>Use a version control system (at least for code) – e.g.&nbsp;git.</li>
+<li>There should be a README in every directory, describing the purpose of the directory and its contents.</li>
+<li>Use file naming schemes that makes it easy to find files and understand what they are (for humans and machines) and document them.</li>
+<li>Use non-proprietary formats – .csv rather than .xlsx</li>
+</ul>
+<p>Literate programming - Document your methods and workflows. - Document where and when you downloaded data. - Document the versions of the software that you ran.</p>
+<p>Future learnings in the course: - Version control - environment managers - containers in bioinformatics - workflow manager</p>
+<p>Github: Useful commands:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># CLONE A REPO</span></span>
+<span id="cb1-2">git clone https<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">//</span>github.com<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>username<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>repo.git</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># BASIC WORKFLOW</span></span>
+<span id="cb1-5">git status                    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># See what changed</span></span>
+<span id="cb1-6">git add .                     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Stage all changes</span></span>
+<span id="cb1-7">git commit <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>m <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"message"</span>       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Commit with message</span></span>
+<span id="cb1-8">git push                      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Push to GitHub</span></span>
+<span id="cb1-9">git pull                      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Pull latest changes</span></span>
+<span id="cb1-10"></span>
+<span id="cb1-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># BRANCHES</span></span>
+<span id="cb1-12">git branch                    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># List branches</span></span>
+<span id="cb1-13">git branch new<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>branch         <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create new branch</span></span>
+<span id="cb1-14">git checkout new<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>branch       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Switch to branch</span></span>
+<span id="cb1-15">git checkout <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>b new<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>branch    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create and switch</span></span>
+<span id="cb1-16">git push origin new<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>branch    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Push branch to GitHub</span></span>
+<span id="cb1-17"></span>
+<span id="cb1-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># UNDO CHANGES</span></span>
+<span id="cb1-19">git restore filename          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Undo changes to file</span></span>
+<span id="cb1-20">git reset HEAD<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Undo last commit (keep changes)</span></span>
+<span id="cb1-21">git revert HEAD               <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Undo last commit (create new commit)</span></span>
+<span id="cb1-22"></span>
+<span id="cb1-23"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># VIEW HISTORY</span></span>
+<span id="cb1-24">git log                       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># See commits</span></span>
+<span id="cb1-25">git log <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>oneline             <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Shorter view</span></span>
+<span id="cb1-26">git diff                      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># See what changed</span></span>
+<span id="cb1-27"></span>
+<span id="cb1-28"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># MERGE BRANCHES</span></span>
+<span id="cb1-29">git checkout main             <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Switch to main</span></span>
+<span id="cb1-30">git merge new<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>branch          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Merge branch into main</span></span>
+<span id="cb1-31"></span>
+<span id="cb1-32"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># STASH (TEMPORARY SAVE)</span></span>
+<span id="cb1-33">git stash                     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Save changes temporarily</span></span>
+<span id="cb1-34">git stash pop                 <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Restore changes</span></span></code></pre></div></div>
+</div>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://vucka7.github.io/blog/posts/day_1/</guid>
+  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://vucka7.github.io/blog/posts/day_1/suitcase.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Day 3 of the 5-day Odissey</title>
+  <dc:creator>Eva Rogelj</dc:creator>
+  <link>https://vucka7.github.io/blog/posts/day_3/</link>
   <description><![CDATA[ 
 
 
@@ -30,14 +285,14 @@
   <category>news</category>
   <category>code</category>
   <category>analysis</category>
-  <guid>https://vucka7.github.io/blog/posts/day_2/</guid>
+  <guid>https://vucka7.github.io/blog/posts/day_3/</guid>
   <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://vucka7.github.io/blog/posts/day_2/odissey_day2.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://vucka7.github.io/blog/posts/day_3/odissey_day2.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Day 1 of the short Odissey</title>
+  <title>Day 2 of the 5-day Odissey</title>
   <dc:creator>Eva Rogelj</dc:creator>
-  <link>https://vucka7.github.io/blog/posts/post-with-code/</link>
+  <link>https://vucka7.github.io/blog/posts/day_4/</link>
   <description><![CDATA[ 
 
 
@@ -45,7 +300,7 @@
 
 
 
-<p>Day 1</p>
+<p>Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)</p>
 
 
 
@@ -53,14 +308,14 @@
   <category>news</category>
   <category>code</category>
   <category>analysis</category>
-  <guid>https://vucka7.github.io/blog/posts/post-with-code/</guid>
+  <guid>https://vucka7.github.io/blog/posts/day_4/</guid>
   <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://vucka7.github.io/blog/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://vucka7.github.io/blog/posts/day_4/odissey_day2.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Welcome To My Blog</title>
+  <title>Day 2 of the short Odissey</title>
   <dc:creator>Eva Rogelj</dc:creator>
-  <link>https://vucka7.github.io/blog/posts/welcome/</link>
+  <link>https://vucka7.github.io/blog/posts/day_5/</link>
   <description><![CDATA[ 
 
 
@@ -68,16 +323,17 @@
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="https://vucka7.github.io/blog/posts/welcome/bean_intro.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<p>Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)</p>
 
 
 
  ]]></description>
   <category>news</category>
-  <guid>https://vucka7.github.io/blog/posts/welcome/</guid>
-  <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://vucka7.github.io/blog/posts/day_5/</guid>
+  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://vucka7.github.io/blog/posts/day_5/odissey_day2.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
