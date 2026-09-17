@@ -1,0 +1,12 @@
+{
+  "hash": "5fd5c92ff01e74dd88533209d0fd724b",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Day 4 of the 5-day Odissey\"\nauthor: \"Eva Rogelj\"\ndate: \"2026-09-14\"\ncategories: [news, code, analysis]\nimage: \"odissey_day2.jpg\"\n---\n\n# Day 4: Pipelines - the horror: nf-core\n## nfcore introduction\n[Nf-core link](https://nf-co.re/)\n\nNf-core is a very active community around nextflow. Volunteers develop nextflow pipelines around a variety of bioinformatic data.\n\nAll nf-core pipelines are open source and the source code is available on github. The pipelines are developed by volunteers, who can have a very varied background.\n\nA standard one that we tried first is rnaseq:\n[rnaseq](https://nf-co.re/rnaseq/3.26.0/)\n\n\nBut one applicable to my research if airrflow:\n[airrflow](https://nf-co.re/airrflow/5.1.1/)\n\nUsing an nf-core pipeline:\nSet pixi environment\n\n```{bash}\n#| eval: false\npixi init nextflow_test -c conda-forge -c bioconda\n```\n\nAdd nf-core and nextflow\n```{bash}\n#| eval: false\npixi add nextflow nf-core\n```\n\nCan check if it worked by:\n```{bash}\n#| eval: false\npixi run nextflow -version\npixi run nf-core --help\npixi run nextflow run hello\n```\n\nYou need a configuration file\n```{bash}\n#| eval: false\nwget https://raw.githubusercontent.com/hpc2n/intro-course/master/exercises/NEXTFLOW/INTERACTIVE/hpc2n.config\n```\n\n```{bash}\n#| eval: false\n// Config profile for HPC2N\nparams {\n  config_profile_description = 'Cluster profile for HPC2N'\n  config_profile_contact = 'Pedro Ojeda @pojeda'\n  config_profile_url = 'https://www.hpc2n.umu.se/'\n  project = null\n  clusterOptions = null\n  max_memory = 128.GB\n  max_cpus = 28\n  max_time = 168.h\n  email = 'pedroojeda2011@gmail.com'\n}\n\nsingularity {\n  enabled = true\n}\n\nprocess {\n  executor = 'slurm'\n  clusterOptions = { \"-A $params.project ${params.clusterOptions ?: ''}\" }\n}\n```\n\nI ran the test data with airrflow\n```{bash}\n#| eval: false\nnextflow run nf-core/airrflow -r 5.1.1 -profile test --outdir <OUTDIR>\n```\n\n```{=html}\n<iframe src=\"Airrflow%20results%20summary%20report.pdf\" width=\"100%\" height=\"800px\"></iframe>\n```\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
