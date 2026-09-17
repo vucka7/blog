@@ -5,14 +5,14 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Swedish Valhund</title>
+<title>Reproducible research course</title>
 <link>https://vucka7.github.io/blog/</link>
 <atom:link href="https://vucka7.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog built with Quarto</description>
 <generator>quarto-1.10.18</generator>
 <lastBuildDate>Mon, 14 Sep 2026 00:00:00 GMT</lastBuildDate>
 <item>
-  <title>Traits</title>
+  <title>Day 2 of the 5-day Odissey</title>
   <dc:creator>Eva Rogelj</dc:creator>
   <link>https://vucka7.github.io/blog/posts/day_2/</link>
   <description><![CDATA[ 
@@ -22,18 +22,99 @@
 
 
 
-<p>Swedish Vallhunds are self-confident, lively, inquisitive, courageous, loyal and independent. They are agile, fast, enthusiastic, muscular, energetic, and eager to please, as well as friendly, healthy and hardy. SVs have delightful personalities. Their temperaments are sound, loving, and sweet. They are calm and adaptable, and delight in sharing your life. The SV is alert, watchful and will stand his ground to observe what is happening, but is not aggressive. While the SV is easily trained, he requires consistent positive reinforcement and leadership from his owner from an early age. The breed has a wonderful sense of humor, and is often chatty in nature. These dogs do not hesitate to announce strangers or their joy of living. Being a Spitz breed, they sometimes have a tendency to bark; however, this can be corrected with training. They find new uses for toys and are quite good at problem-solving. They enjoy being stimulated by learning new tasks.</p>
+<p>Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">wget <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>qO<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> https<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">//</span>pixi.sh<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>install.sh <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> sh</span></code></pre></div></div>
+</div>
+<p>Everytime you need to initiate a pixi environment in the same folder, you’re working in</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">pixi init name_pixi_training <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>c conda<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>forge <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>c bioconda</span></code></pre></div></div>
+</div>
+<p>There will be a pixi.toml file. It would look a little like this</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>[workspace]</span>
+<span id="cb3-2"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>channels <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"conda-forge"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bioconda"</span>]</span>
+<span id="cb3-3"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>name <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"amrei_pixi_training"</span></span>
+<span id="cb3-4"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>platforms <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"linux-64"</span>]</span>
+<span id="cb3-5">version <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0.1.0"</span></span>
+<span id="cb3-6"></span>
+<span id="cb3-7"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>[tasks]</span>
+<span id="cb3-8"></span>
+<span id="cb3-9"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>[dependencies]</span></code></pre></div></div>
+</div>
+<p>1 Overview section of the environment. 2 Added channels - these are the sources we allow for our dependencies/ tools. 3 The name of the environment. 4 Operating system the environment is optimised for. 5 This is where we can define tasks - interesting, but not covered in this course. 6 Here will be the list of tool installed within the environment (once we have added them).</p>
+<p>pixi.lock The .lock file give you information on the channels you have decided to add, as well as the information on where the packages were downloaded from, license information, md5 information, and more.</p>
+<p>IMPORTANT: Do not delete the .toml or .lock files, or you will break your environment!</p>
+<p>If you want to add a dependency, you use add</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">pixi add quarto</span></code></pre></div></div>
+</div>
+<p>You could enter an environment with</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">pixi shell</span></code></pre></div></div>
+</div>
+<p>You exit the environment with exit</p>
 
 
 
  ]]></description>
-  <category>personality</category>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
   <guid>https://vucka7.github.io/blog/posts/day_2/</guid>
   <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://vucka7.github.io/blog/posts/day_2/characteristics.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://vucka7.github.io/blog/posts/day_2/odissey_day2.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Origins</title>
+  <title>Day 1 of the 5-day Odissey</title>
   <dc:creator>Eva Rogelj</dc:creator>
   <link>https://vucka7.github.io/blog/posts/day_1/</link>
   <description><![CDATA[ 
@@ -43,19 +124,162 @@
 
 
 
-<p>The Swedish Vallhund (SV) is a very old Spitz type breed known since the time of the Vikings. Sweden states the Swedish Vallhund dates back over 1000 years to the time of the Vikings when it may have been known as the “Vikingarnas Dog”. During the eighth or ninth century, historians state either the SV was brought to Wales or the Corgi was taken to Sweden, hence the similarities between the two breeds. The historian, Clifford Hubbard thought the Swedish Vallhund was the older of the two breeds. The SV is an alert, eager to please and learn, energetic, hardy dog that is longer legged, but not as long in body, nor as stocky as the Corgi. The Swedish Vallhund was bred to work on farms and ranches and originally herded cattle. Sweden has declared that this breed is a “Lantras”. This designation includes the exhibition of qualities such as: long life, patience to hardship, and hardiness.</p>
-<p><img src="https://vucka7.github.io/blog/posts/day_1/sve valhund.jpeg" class="img-fluid"></p>
+<p>Day 1 - only beginning to dream about being a bioinformatician</p>
+<p>Data Management and reproducible research <img src="https://vucka7.github.io/blog/posts/day_1/data_life_cycle.png" class="img-fluid" alt="Alt text"></p>
+<p>FAIR principles</p>
+<p>FAIR principles rely on good data management practices in all phases of research:</p>
+<p>Research documentation Data organisation Information security Ethics and legislation</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vucka7.github.io/blog/posts/day_1/fair-data-principles.webp" class="img-fluid figure-img"></p>
+<figcaption>Alt text</figcaption>
+</figure>
+</div>
+<p>Best practices for file organisation</p>
+<ul>
+<li>There is a folder for the raw data, which does not get altered.</li>
+<li>Code is kept separate from data.</li>
+<li>Use a version control system (at least for code) – e.g.&nbsp;git.</li>
+<li>There should be a README in every directory, describing the purpose of the directory and its contents.</li>
+<li>Use file naming schemes that makes it easy to find files and understand what they are (for humans and machines) and document them.</li>
+<li>Use non-proprietary formats – .csv rather than .xlsx</li>
+</ul>
+<p>Literate programming - Document your methods and workflows. - Document where and when you downloaded data. - Document the versions of the software that you ran.</p>
+<p>Future learnings in the course: - Version control - environment managers - containers in bioinformatics - workflow manager</p>
+<p>Github: Useful commands:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># CLONE A REPO</span></span>
+<span id="cb1-2">git clone https<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">//</span>github.com<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>username<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>repo.git</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># BASIC WORKFLOW</span></span>
+<span id="cb1-5">git status                    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># See what changed</span></span>
+<span id="cb1-6">git add .                     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Stage all changes</span></span>
+<span id="cb1-7">git commit <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>m <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"message"</span>       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Commit with message</span></span>
+<span id="cb1-8">git push                      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Push to GitHub</span></span>
+<span id="cb1-9">git pull                      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Pull latest changes</span></span>
+<span id="cb1-10"></span>
+<span id="cb1-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># BRANCHES</span></span>
+<span id="cb1-12">git branch                    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># List branches</span></span>
+<span id="cb1-13">git branch new<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>branch         <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create new branch</span></span>
+<span id="cb1-14">git checkout new<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>branch       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Switch to branch</span></span>
+<span id="cb1-15">git checkout <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>b new<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>branch    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create and switch</span></span>
+<span id="cb1-16">git push origin new<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>branch    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Push branch to GitHub</span></span>
+<span id="cb1-17"></span>
+<span id="cb1-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># UNDO CHANGES</span></span>
+<span id="cb1-19">git restore filename          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Undo changes to file</span></span>
+<span id="cb1-20">git reset HEAD<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Undo last commit (keep changes)</span></span>
+<span id="cb1-21">git revert HEAD               <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Undo last commit (create new commit)</span></span>
+<span id="cb1-22"></span>
+<span id="cb1-23"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># VIEW HISTORY</span></span>
+<span id="cb1-24">git log                       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># See commits</span></span>
+<span id="cb1-25">git log <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>oneline             <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Shorter view</span></span>
+<span id="cb1-26">git diff                      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># See what changed</span></span>
+<span id="cb1-27"></span>
+<span id="cb1-28"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># MERGE BRANCHES</span></span>
+<span id="cb1-29">git checkout main             <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Switch to main</span></span>
+<span id="cb1-30">git merge new<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>branch          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Merge branch into main</span></span>
+<span id="cb1-31"></span>
+<span id="cb1-32"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># STASH (TEMPORARY SAVE)</span></span>
+<span id="cb1-33">git stash                     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Save changes temporarily</span></span>
+<span id="cb1-34">git stash pop                 <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Restore changes</span></span></code></pre></div></div>
+</div>
 
 
 
  ]]></description>
-  <category>history</category>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
   <guid>https://vucka7.github.io/blog/posts/day_1/</guid>
   <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://vucka7.github.io/blog/posts/day_1/sve valhund.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://vucka7.github.io/blog/posts/day_1/suitcase.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Is a Swedish Valhund a Corgi?</title>
+  <title>Day 3 of the 5-day Odissey</title>
   <dc:creator>Eva Rogelj</dc:creator>
   <link>https://vucka7.github.io/blog/posts/day_3/</link>
   <description><![CDATA[ 
@@ -65,47 +289,63 @@
 
 
 
-<p><strong>Is a Swedish Valhund a Corgi? The Truth Behind the Confusion</strong></p>
-<p>If you’ve seen a Swedish Valhund, you might have done a double-take. “Is that a corgi?” you might ask. The answer is both yes and no—and the story is more interesting than you think.</p>
-<p><strong>What They Have in Common</strong></p>
-<p>The Swedish Valhund and the Welsh Corgi do share striking similarities. Both are small herding dogs with short legs, long bodies, and sturdy builds. They were both bred to herd livestock (cattle for the Valhund, sheep for the Corgi) and have that characteristic low-to-the-ground frame that helped them nip at heels without getting kicked. Both are intelligent, alert, and full of personality. If you squint, you can definitely see the family resemblance.</p>
-<p><strong>But They Are NOT the Same Breed</strong></p>
-<p>Here’s where they diverge:</p>
-<p><strong>Origin:</strong> The Swedish Valhund comes from Sweden (hence the name), where it’s been herding cattle for over a thousand years. The Welsh Corgi originates from Wales and comes in two varieties: Pembroke and Cardigan.</p>
-<p><strong>Appearance:</strong> While both are short-legged, the Valhund is more compact and muscular. The Corgi tends to have a more fox-like face, while the Valhund has a more wolf-like expression. The Valhund’s coat is typically gray or red with white markings, whereas Corgis come in red, sable, fawn, or black and tan.</p>
-<p><strong>Tail:</strong> This is a key difference! Swedish Valhunds have a naturally short, fox-like tail. Welsh Corgis (especially Pembrokes) often have their tails docked, though naturally they’re longer and fuller.</p>
-<p><strong>Size:</strong> Valhunds are slightly smaller and lighter than Corgis, making them even more agile herders.</p>
-<p><strong>Temperament:</strong> While both are smart and spirited, the Valhund tends to be slightly more independent and has a stronger herding instinct. Corgis are often more affectionate and better known as companion dogs, especially after their association with British royalty.</p>
-<p><strong>The Historical Mystery</strong></p>
-<p>Interestingly, some dog historians believe the breeds may share ancient Viking ancestry. Swedish traders and raiders may have brought their dogs to Wales, or vice versa. However, they developed independently over centuries, becoming distinct breeds adapted to their respective countries’ landscapes and livestock needs.</p>
-<p><strong>The Bottom Line</strong></p>
-<p>A Swedish Valhund is <strong>not</strong> a Corgi, but they’re distant cousins in the herding dog family. Think of it like asking if a husky is a malamute—similar in some ways, but distinctly different breeds with their own history and characteristics.</p>
-<p>If you’re considering one as a pet, remember: while they look adorable and compact, both breeds need regular exercise, mental stimulation, and can be stubborn herders at heart. They’ll try to herd your kids, your cats, and probably your guests’ ankles if given the chance!</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vucka7.github.io/blog/posts/day_3/corgi.jpeg" class="img-circle img-fluid figure-img" width="300"></p>
-<figcaption>Corgi</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vucka7.github.io/blog/posts/day_3/swe_valhund.jpeg" class="img-circle img-fluid figure-img" width="300"></p>
-<figcaption>Swedish Valhund</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<p>Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)</p>
 
 
 
  ]]></description>
-  <category>breed comparison</category>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
   <guid>https://vucka7.github.io/blog/posts/day_3/</guid>
   <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://vucka7.github.io/blog/posts/day_3/sheep.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://vucka7.github.io/blog/posts/day_3/odissey_day2.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Day 2 of the 5-day Odissey</title>
+  <dc:creator>Eva Rogelj</dc:creator>
+  <link>https://vucka7.github.io/blog/posts/day_4/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://vucka7.github.io/blog/posts/day_4/</guid>
+  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://vucka7.github.io/blog/posts/day_4/odissey_day2.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Day 2 of the short Odissey</title>
+  <dc:creator>Eva Rogelj</dc:creator>
+  <link>https://vucka7.github.io/blog/posts/day_5/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)</p>
+
+
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://vucka7.github.io/blog/posts/day_5/</guid>
+  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://vucka7.github.io/blog/posts/day_5/odissey_day2.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
