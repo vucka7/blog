@@ -1,5 +1,5 @@
 ---
-title: "Day 3 of the 5-day Odissey"
+title: "Day 2 of the 5-day Odissey"
 author: "Eva Rogelj"
 date: "2026-09-14"
 categories: [news, code, analysis]
