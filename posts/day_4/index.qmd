@@ -9,6 +9,7 @@ image: "odissey_day2.jpg"
 # Day 4: Pipelines - the horror: nf-core
 ## nfcore introduction
 Nf-core is a very active community around nextflow. Volunteers develop nextflow pipelines around a variety of bioinformatic data.
+
 [Nf-core link](https://nf-co.re/)
 
 
