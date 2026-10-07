@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Eva Rogelj">
-<meta name="dcterms.date" content="2026-09-14">
+<meta name="dcterms.date" content="2026-09-16">
 
-<title>Day 3 of the 5-day Odissey – Reproducible research course</title>
+<title>Day 3 of the 5-day Odyssey – Reproducible research course</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -28,6 +28,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -44,14 +79,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-65ab6f6afcc98c2005f3bec1c5e98b7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a515e054079012129989d5397ee3c9c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-65ab6f6afcc98c2005f3bec1c5e98b7d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-7100700a5d4657facf49b32369185e6d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-90b0ccabdf50233fb893b00cd6e33405.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-7100700a5d4657facf49b32369185e6d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,35 +115,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -296,16 +302,6 @@ window.Quarto = {
     <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://bsky.app/"> <i class="bi bi-bluesky" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -318,7 +314,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Day 3 of the 5-day Odissey</h1>
+      <h1 class="title">Day 3 of the 5-day Odyssey</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">news</div>
                 <div class="quarto-category">code</div>
@@ -340,7 +336,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 14, 2026</p>
+        <p class="date">September 16, 2026</p>
       </div>
     </div>
     
@@ -360,212 +356,245 @@ window.Quarto = {
 
 
 
-<p>Day 3 - Introduction to Nextflow When developing your code in bioinformatics, you will likely use different tool for different parts of your analyses. Traditionally, you would have about one script per tool, all of which you deploy by hand, one after the other. Together, this is called a workflowor pipeline.</p>
-<p>Manual deployment of pipelines can be tedious, especially if you have analyses with many steps, or many samples of different sizes that might need a varying amount of computational power. Luckily for you, other bioinformaticians and software developers have developed something to make your life much easier:</p>
-<p>Workflow managers Workflow managers provide a framework for the creation, execution, and monitoring of pipeline. &lt;…&gt; They simplify pipeline development, optimize resource usage, handle software installation and versions, and run on different compute platforms, enabling workflow portability and sharing. Wratten et al.&nbsp;(2021) Nature Methods</p>
-<p>With workflow managers you can develop an automated pipeline from your scripts that can then be run on a variety of systems. Once it is developed, execute a single command to start the pipeline. The manager then coordinates the deployment of the scripts in the appropriate sequence, monitors the jobs, handles the file transfers between scripts, gathers the output, and handles re-execution of failed jobs for you. Workflow managed pipelines can run containers, which eliminates software installation and version conflicts.</p>
-<p>That means that by design the pipelines are:</p>
-<p>portable more time efficient (no more downtime between pipeline steps) more resource efficient (mostly, but this might vary depending how skilled a developer you yourself are) easier to install (especially when combined with containers, or environment managers) more reproducible There are in principle two different flavors of workflow managers: snakemake, and nextflow. In this course we will be introducing you to nexflow.</p>
+<section id="day-3-nextflow-finally-no-more-running-one-script-after-another-by-hand." class="level2">
+<h2 class="anchored" data-anchor-id="day-3-nextflow-finally-no-more-running-one-script-after-another-by-hand.">Day 3: Nextflow! Finally, no more running one script after another by hand.</h2>
+<p>Why a workflow manager? Oh Why?</p>
+<p>In bioinformatics you usually end up with one script per tool, and you run them one by one. That whole chain is a <strong>workflow</strong> (or pipeline). It gets old fast, especially with lots of samples that all need different amounts of compute.</p>
+<p>A workflow manager turns your scripts into one automated pipeline. One command and it:</p>
+<ul>
+<li>runs everything in the right order</li>
+<li>keeps an eye on the jobs</li>
+<li>moves files between steps</li>
+<li>re-runs whatever failed</li>
+</ul>
+<p>Bonus: pipelines are portable, reproducible, easier to install (especially with containers) and don’t waste time between steps.</p>
+<p>There are two big ones, <strong>Snakemake</strong> and <strong>Nextflow</strong>. We’re doing Nextflow.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="nextflow.jpg" class="img-fluid figure-img"></p>
-<figcaption>Alt text</figcaption>
+<p><img src="nextflow.jpg" class="img-fluid figure-img" alt="Overview diagram of how Nextflow works"></p>
+<figcaption>Nextflow overview</figcaption>
 </figure>
 </div>
-<p>In nextflow, your scripts are turned into processes, connected by channels that contain the data - input, output etc. The order of the processes, and their interaction with each other, is specfied in the workflow scope.</p>
-<p>The executable part of the processes, the so called script, can be written in any language, so in theory you could always choose the language that is best suited for the job (in practice you might be limited to the languages you know). However, the modularity of the processes allows for easy re-use of existing scripts and processes.</p>
-<p>When moving the pipeline from one system to another, the script stays the same and does not change, the same containers are used. The only thing that changes are the parameters that pertain to the environment and available resources. In other words, with nextflow, the functional logic, the processes, are separated from the executive (how the workflow runs). This makes the nextflow pipelines highly interoperable and portable. They can be run on various platforms, such as HPC clusters, local computers, cloud systems etc..</p>
-<p>The pipelines can be integrated with version control tools, such as git or bitbucket, and containers technologies, such as apptainer or docker. This makes the pipeline very reproducible.</p>
-<p>The nextflow pipelines are extremely scalable, can be developed on a few samples and easily be run on hundreds or thousands of samples. When possible, processes are run in parallel automatically.</p>
-<p>Nexflow performs automatic checks on the processes and their in- and output. It can automatically resume execution at a point of failure without having to re-compute successfully completed parts.</p>
-<p>Nextflow is open source.</p>
-<p>Here is a more visual summary of some of the points above: Write code in any language orchestrate tasks with dataflow programming define software dependencies via containers built-in version control with Git Task orchestration and execution</p>
-<p>How to work with Nextflow? Any process can define one or more channels as an input and output. The interaction between these processes, and ultimately the workflow execution flow itself, is implicitly defined by these input and output declarations.</p>
-<p>Process block looks a little bit like this:</p>
-<pre class="{bash}"><code>#| eval: false
-process PROCESS_NAME{
-    // directives
-    container
-    
-    input:
-      data z
-      data y
-      data x
+</section>
+<section id="nextflow-in-a-nutshell" class="level2">
+<h2 class="anchored" data-anchor-id="nextflow-in-a-nutshell">Nextflow in a nutshell</h2>
+<ul>
+<li>Scripts become <strong>processes</strong>, connected by <strong>channels</strong> (the data flowing in and out).</li>
+<li>The <strong>workflow</strong> block says what runs in which order.</li>
+<li>A process can run any language, so you can reuse old scripts.</li>
+<li>Same pipeline on a laptop, an HPC cluster or the cloud. Only the config changes.</li>
+<li>Works with git and containers (Apptainer, Docker).</li>
+<li>Develop on a few samples, then scale to hundreds.</li>
+<li>If something breaks, it can <strong>resume</strong> from the failed step instead of starting over.</li>
+</ul>
+<p>A process looks roughly like this (pseudo-code, don’t run it):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>process PROCESS_NAME <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    container</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    input<span class="op">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      data x</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    script<span class="op">:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      task1</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      task2</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    output<span class="op">:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      output x</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="first-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="first-workflow">First workflow</h2>
+<p>Start from a pixi environment (see <a href="day2.qmd">Day 2</a>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> init <span class="at">-c</span> conda-forge <span class="at">-c</span> bioconda</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then put this in <code>hello.nf</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>#<span class="op">!</span><span class="st">/usr/</span>bin<span class="op">/</span>env nextflow</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>params<span class="op">.</span>greeting <span class="op">=</span> <span class="st">'Hello world!'</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>process SPLITLETTERS <span class="op">{</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    input<span class="op">:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    val x</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    output<span class="op">:</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    path <span class="st">'chunk_*'</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    script<span class="op">:</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"""</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="st">    printf '</span><span class="ss">$x</span><span class="st">' | split -b 6 - chunk_</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>process CONVERTTOUPPER <span class="op">{</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    input<span class="op">:</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    path y</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    output<span class="op">:</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    stdout</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    script<span class="op">:</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"""</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="st">    cat </span><span class="ss">$y</span><span class="st"> | tr '[a-z]' '[A-Z]'</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>workflow <span class="op">{</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    greeting_ch <span class="op">=</span> <span class="bu">Channel</span><span class="op">.</span><span class="fu">of</span><span class="op">(</span>params<span class="op">.</span>greeting<span class="op">)</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    letters_ch <span class="op">=</span> <span class="fu">SPLITLETTERS</span><span class="op">(</span>greeting_ch<span class="op">)</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    results_ch <span class="op">=</span> <span class="fu">CONVERTTOUPPER</span><span class="op">(</span>letters_ch<span class="op">.</span><span class="fu">flatten</span><span class="op">())</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    results_ch<span class="op">.</span><span class="fu">view</span><span class="op">{</span> it <span class="op">}</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run nextflow run hello.nf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Output (the order can flip, because the two <code>CONVERTTOUPPER</code> tasks run at the same time):</p>
+<pre class="text"><code>executor &gt;  local (3)
+[96/fd5f07] SPLITLETTERS (1)   [100%] 1 of 1 ✔
+[7e/dad424] CONVERTTOUPPER (2) [100%] 2 of 2 ✔
+HELLO
+WORLD!</code></pre>
+<p>Changed something small and don’t want to redo everything? Add <code>-resume</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run nextflow run hello.nf <span class="at">-resume</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Parameters live under <code>params.</code> (like <code>params.greeting</code>) and can be overridden on the command line with <code>--greeting</code>.</p>
+<p>To check and clean up old runs:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run nextflow log</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run nextflow clean <span class="at">-f</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run nextflow clean <span class="at">-before</span> <span class="op">&lt;</span>RUN NAME<span class="op">&gt;</span> -f</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="the-rna-seq-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="the-rna-seq-pipeline">The RNA-seq pipeline</h2>
+<p>Three tools:</p>
+<ul>
+<li><strong>Salmon</strong>: quantifies transcripts from RNA-seq reads</li>
+<li><strong>FastQC</strong>: quality control of the raw reads</li>
+<li><strong>MultiQC</strong>: collects all the logs into one HTML report</li>
+</ul>
+<p>And the order makes sense once you see why:</p>
+<ol type="1">
+<li><strong>Index</strong> the transcriptome (<code>salmon index</code>). Salmon needs a searchable index, not a plain FASTA. Done once, reused by every sample.</li>
+<li><strong>Quantify</strong> (<code>salmon quant</code>). Maps each read pair against the index and estimates how much of each transcript is there.</li>
+<li><strong>FastQC</strong>. Runs alongside quantification, since QC doesn’t depend on the counting.</li>
+<li><strong>MultiQC</strong>. Waits for everything, then gives one report instead of dozens of files.</li>
+</ol>
+<section id="config" class="level3">
+<h3 class="anchored" data-anchor-id="config">Config</h3>
+<p>Everything about <em>where</em> the pipeline runs goes in <code>nextflow.config</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>process <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    executor <span class="op">=</span> <span class="st">'slurm'</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    time <span class="op">=</span> <span class="fl">2.</span>h</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    cpus <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>resume <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>singularity<span class="op">.</span>enabled <span class="op">=</span> <span class="kw">true</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>executor <span class="op">{</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    account <span class="op">=</span> <span class="st">'your_project_account'</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>So: everything goes to <strong>slurm</strong>, <code>resume</code> is always on (no more <code>-resume</code>), Singularity is enabled for containers, and the account is whatever your allocation ID is. Nextflow finds this file by itself as long as you run from the same folder.</p>
+</section>
+<section id="parameters" class="level3">
+<h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
+<p><code>script1.nf</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>#<span class="op">!</span><span class="st">/usr/</span>bin<span class="op">/</span>env nextflow</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>params<span class="op">.</span>reads <span class="op">=</span> <span class="st">"</span><span class="ss">$projectDir</span><span class="st">/data/ggal/gut_{1,2}.fq"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>params<span class="op">.</span>transcriptome_file <span class="op">=</span> <span class="st">"</span><span class="ss">$projectDir</span><span class="st">/data/ggal/transcriptome.fa"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>params<span class="op">.</span>multiqc <span class="op">=</span> <span class="st">"</span><span class="ss">$projectDir</span><span class="st">/multiqc"</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>workflow <span class="op">{</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    println <span class="st">"reads: </span><span class="ss">$params</span><span class="op">.</span><span class="ss">reads</span><span class="st">"</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run nextflow run script1.nf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="index-the-transcriptome" class="level3">
+<h3 class="anchored" data-anchor-id="index-the-transcriptome">Index the transcriptome</h3>
+<p>A process has an <strong>input</strong>, an <strong>output</strong> and a <strong>script</strong>. Add this to <code>script1.nf</code> (already in <code>script2.nf</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>process INDEX <span class="op">{</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    input<span class="op">:</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    path transcriptome</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    output<span class="op">:</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    path <span class="st">'salmon_index'</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    script<span class="op">:</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"""</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="st">    salmon index --threads </span><span class="ss">$task</span><span class="op">.</span><span class="ss">cpus</span><span class="st"> -t </span><span class="ss">$transcriptome</span><span class="st"> -i salmon_index</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>and swap the workflow block for:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>workflow <span class="op">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    index_ch <span class="op">=</span> <span class="fu">INDEX</span><span class="op">(</span><span class="fu">file</span><span class="op">(</span>params<span class="op">.</span>transcriptome_file<span class="op">,</span> checkIfExists<span class="op">:</span> <span class="kw">true</span><span class="op">))</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Run it and… it fails. What did we forget? Salmon isn’t installed yet. Two options:</p>
+<p><strong>A. Add it to the environment</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> add salmon</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>B. Use a container</strong> (more reproducible). Add this inside the process, above <code>input</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>container <span class="st">'oras://community.wave.seqera.io/library/salmon:2.7.0--cb05356ce9eb88b7'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can also give a process its own output folder, just under <code>container</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>publishDir <span class="st">"</span><span class="ss">$params</span><span class="op">.</span><span class="ss">outdir</span><span class="st">/salmon"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>By default it <em>links</em> files into <code>work/</code>, which is fast but the files vanish if you clean <code>work/</code>. Add <code>mode: 'copy'</code> for results you want to keep.</p>
+</div>
+</div>
+</section>
+<section id="resources-per-process" class="level3">
+<h3 class="anchored" data-anchor-id="resources-per-process">Resources per process</h3>
+<p>In <code>nextflow.config</code>, inside the <code>process</code> block (before its closing brace):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>withName<span class="op">:</span> <span class="st">'INDEX'</span> <span class="op">{</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    time <span class="op">=</span> <span class="fl">15.</span>m</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    cpus <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Need memory? Add something like <code>memory = 8.GB</code>. Here 2 CPUs come with enough, so I skipped it.</p>
+</section>
+<section id="quick-detour-tuples" class="level3">
+<h3 class="anchored" data-anchor-id="quick-detour-tuples">Quick detour: tuples</h3>
+<p>Salmon needs both reads of a pair together. The data folder has six files (three samples, two each):</p>
+<pre class="text"><code>gut_1.fq    gut_2.fq
+liver_1.fq  liver_2.fq
+lung_1.fq   lung_2.fq</code></pre>
+<p><code>fromFilePairs</code> groups them for us (<code>script3.nf</code>). The <code>{1,2}</code> marks the part that’s allowed to differ:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>workflow <span class="op">{</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    read_pairs_ch <span class="op">=</span> channel<span class="op">.</span><span class="fu">fromFilePairs</span><span class="op">(</span>params<span class="op">.</span>reads<span class="op">)</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    read_pairs_ch<span class="op">.</span><span class="fu">view</span><span class="op">()</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Each item is a <strong>tuple</strong>: the sample ID plus the list of its two files.</p>
+<pre class="text"><code>[gut, [/.../data/ggal/gut_1.fq, /.../data/ggal/gut_2.fq]]</code></pre>
+<p>Think matching socks: <code>_1</code> and <code>_2</code> get paired by their shared name. <code>params.reads</code> only points at <code>gut</code>, so to see all three:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run nextflow run script3.nf <span class="at">--reads</span> <span class="st">'data/ggal/*_{1,2}.fq'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="quantification" class="level3">
+<h3 class="anchored" data-anchor-id="quantification">Quantification</h3>
+<p><code>script4.nf</code> adds <code>QUANTIFICATION</code>. It takes two inputs: the <code>index_ch</code> from before, and the read pairs tuple (<code>sample_id</code> plus <code>reads</code>).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run nextflow run script4.nf</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run nextflow run script4.nf <span class="at">--reads</span> <span class="st">'data/ggal/*_{1,2}.fq'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>With more files, <code>QUANTIFICATION</code> just runs multiple times in parallel. That’s Nextflow doing its thing.</p>
+</section>
+<section id="fastqc" class="level3">
+<h3 class="anchored" data-anchor-id="fastqc">FastQC</h3>
+<p>Same idea, same input as <code>QUANTIFICATION</code>.</p>
+</section>
+<section id="multiqc" class="level3">
+<h3 class="anchored" data-anchor-id="multiqc">MultiQC</h3>
+<p>Last step: collect the outputs of <code>QUANTIFICATION</code> and <code>FASTQC</code> into a report. What do you need to think about here?</p>
+<p>We want <strong>one</strong> MultiQC task and <strong>one</strong> report, so it has to wait for everything else. Combine the channels with <code>mix</code>, then <code>collect</code> them into a single element:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">MULTIQC</span><span class="op">(</span>quant_ch<span class="op">.</span><span class="fu">mix</span><span class="op">(</span>fastqc_ch<span class="op">).</span><span class="fu">collect</span><span class="op">())</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>:::</p>
 
-    script:
-      task1
-      task2
-      task3
 
-    output:
-      output x
-      output y
-      output z
-}</code></pre>
-<p>We started with:</p>
-<pre class="{bash}"><code>#| eval: false
-pixi init -c conda-forge -c bioconda</code></pre>
-<p>Something like this is a code in a .txt file</p>
-<pre class="{bash}"><code>#| eval: false
-#!/usr/bin/env nextflow
-
-params.greeting = 'Hello world!'
-
-process SPLITLETTERS {
-    input:
-    val x
-
-    output:
-    path 'chunk_*'
-
-    script:
-    """
-    printf '$x' | split -b 6 - chunk_
-    """
-}
-
-process CONVERTTOUPPER {
-    input:
-    path y
-
-    output:
-    stdout
-
-    script:
-    """
-    cat $y | tr '[a-z]' '[A-Z]'
-    """
-}
-
-workflow {
-    greeting_ch = Channel.of(params.greeting)
-    letters_ch = SPLITLETTERS(greeting_ch)
-    results_ch = CONVERTTOUPPER(letters_ch.flatten())
-    results_ch.view{ it }
-}</code></pre>
-<p>If you run:</p>
-<pre class="{bash}"><code>#| eval: false
-pixi run nextflow run hello.nf</code></pre>
-<p>Output looks like N E X T F L O W ~ version 25.04.7</p>
-<p>Launching <code>hello.nf</code> [jolly_faraday] DSL2 - revision: f5e335f983</p>
-<p>executor &gt; local (3) [96/fd5f07] SPLITLETTERS (1) [100%] 1 of 1 ✔ [7e/dad424] CONVERTTOUPPER (2) [100%] 2 of 2 ✔ HELLO WORLD!</p>
-<p>The order might be different, both processes are executed next to each other.</p>
-<p>If you want to change something, but not re-run the whole thing, you can use:</p>
-<pre class="{bash}"><code>#| eval: false
-pixi run nextflow run hello.nf -resume</code></pre>
-<p>Workflow parameters can be altered As we have seen workflow parameters are simply declared by prepending the prefix params to a variable name, separated by a dot character (e.g.&nbsp;params.greeting). Their value can alternatively be specified on the command line by prefixing the parameter name with a double dash character, i.e.&nbsp;–paramName.</p>
-<p>Nextflow log can get crowded - use this command to remove log files.</p>
-<pre class="{bash}"><code>#| eval: false
-pixi run nextflow log
-pixi run nextflow clean -f
-pixi run nextflow clean -before &lt;RUN NAME&gt; -f</code></pre>
-<p>Nextflow RNAseq pipeline</p>
-<p>Salmon — quantifies transcripts from RNA-seq data. FastQC — performs quality control on high-throughput sequencing data. MultiQC — searches a directory for analysis logs and compiles them into a single HTML report.</p>
-<p>Step by step — and why each tool is used when:</p>
-<p>Index the transcriptome reference — salmon index. Salmon cannot quantify reads against a plain FASTA; it first needs to turn the reference into a fast, searchable index. We do this once at the start, and every sample reuses the same index.</p>
-<p>Quantify expression — salmon quant. For each sample, Salmon maps the read pair against the index and estimates how much of each transcript is present. Here Salmon turns raw reads into numbers to analyse.</p>
-<p>Check read quality — FastQC. In parallel, FastQC inspects the raw reads of each sample (base quality, adapter content, and so on). We run it alongside quantification, not after, because quality control is independent of the counting.</p>
-<p>Summarise everything — MultiQC. Finally, MultiQC gathers the logs from all the samples (Salmon and FastQC) into one HTML report, so you read a single summary instead of opening dozens of files. It waits for the all earlier steps to finish before it runs.</p>
-<p>First step: Set the executor You can specify your computer power in a file called nextflow.config.</p>
-<pre class="{bash}"><code>#| eval: false
-process{
-    executor = "slurm"
-    time = '2.h'  // Set default time limit for all processes
-    
-    // Other settings
-    cpus = 4
-}
-
-resume = true
-singularity.enabled = true
-
-executor {
-    account = 'your_project_account'
-}</code></pre>
-<p>This sets the executor for every process to slurm.</p>
-<p>We set resume to true, so it is automatically used for all our runs (which means we do not have to specify this in our nextflow run command anymore).</p>
-<p>We enable singularity and set some singularity run options.</p>
-<p>Lastly, we specify the account name for the slurm execution, replace the placeholder with the actual compute allocation ID.</p>
-<p>This nextflow.config file is implicitly called when we execute nextflow from the folder it is in. We do not have to explicitely name it in the nextflow run command.</p>
-<p>Define the workflow parameters Parameters are inputs and options that can be changed when the workflow is run.</p>
-<p>The script script1.nf defines the workflow input parameters:</p>
-<p>#!/usr/bin/env nextflow</p>
-<p>params.reads = “<span class="math inline">\(projectDir/data/ggal/gut_{1,2}.fq"
-params.transcriptome_file = "\)</span>projectDir/data/ggal/transcriptome.fa” params.multiqc = “$projectDir/multiqc”</p>
-<p>workflow { println “reads: $params.reads” }</p>
-<p>Run it by using the following command:</p>
-<p>pixi run nextflow run script1.nf</p>
-<p>Note Note that we do not need to specify that we want to use the nextflow.config file. Since it is in the same directory it will be used automatically.</p>
-<p>ImportantTo do for you Modify script1.nf by adding a fourth parameter named outdir and set it to a default path that will be used as the workflow output directory.</p>
-<p>Create a transcriptome index file Nextflow allows the execution of any command or script by using a process definition.</p>
-<p>A process is defined by providing three main declarations: the process input, output, and the command script.</p>
-<p>To add a transcriptome INDEX processing step, add the following code blocks to your script1.nf. Alternatively, these code blocks have already been added to script2.nf.</p>
-<p>process INDEX { input: path transcriptome</p>
-<pre><code>output:
-path 'salmon_index'
-
-script:
-"""
-salmon index --threads $task.cpus -t $transcriptome -i salmon_index
-"""</code></pre>
-<p>}</p>
-<p>Additionally, replace the existing workflow scope with an input channel definition and the index process:</p>
-<p>workflow { index_ch = INDEX(file(params.transcriptome_file, checkIfExists: true)) }</p>
-<p>Here, the params.transcriptome_file parameter is used as the input for the INDEX process. The INDEX process (using the salmon tool) creates salmon_index, an indexed transcriptome that is passed as an output to the index_ch channel.</p>
-<p>Run with:</p>
-<p>pixi run nextflow run script1.nf</p>
-<p>Caution Why doesn’t this work? What have we forgotten?</p>
-<p>EITHER add Salmon to your environment pixi add salmon</p>
-<p>OR add Salmon in a container to the process Adding a container to the process and running the tool via the container is more reproducible than adding it to your environment. Use the container directive and add the URL to the container to the process scope, above the input block:</p>
-<p>container ‘oras://community.wave.seqera.io/library/salmon:2.7.0–cb05356ce9eb88b7’</p>
-<p>Note You can also specify a process specific output directory in the process block:</p>
-<p>publishDir “$params.outdir/salmon”</p>
-<p>This command line would typically be located just below the container directive.</p>
-<p>By default publishDir links the published files back into the work/ directory rather than copying them. This is fast and saves space, but it means the files disappear if you clean work/. Add mode: ‘copy’ when you want an independent copy that survives a cleanup, for example a result you intend to keep or share.</p>
-<p>Define run time environment Remember how Nextflow is big on execution abstraction? This is where we will put this concept into practice. In the nextflow.config add the following just before the closing squiggly bracket from the process definitions:</p>
-<pre><code>withName:'INDEX'{
-    time = 15.m
-    cpus = 2
-}</code></pre>
-<p>With this we specify the alloted time and cpus for this specific process.</p>
-<p>To specify memory add mem = xx.GB - check with your cluster to see how much memory is available and how to specify it. In our case we don’t need to because the memory implicit in the 2 cpus is enough for our purposes.</p>
-<p>pixi run nextflow run script1.nf</p>
-<p>Interlude: Visualize tuples Salmon needs both reads of a pair together to quantify a sample. Our data folder holds six files — three samples, two files each:</p>
-<p>gut_1.fq gut_2.fq liver_1.fq liver_2.fq lung_1.fq lung_2.fq If we simply collected every .fq into one channel, Nextflow would see six loose files with nothing saying that gut_1 and gut_2 belong together. We need them grouped by sample.</p>
-<p>That is what the fromFilePairs channel factory does, and we can have a look at it in script3.nf. The {1,2} in the pattern marks the part that differs between the two files of a pair; Nextflow groups the files that share everything else:</p>
-<p>read_pairs_ch = channel.fromFilePairs(params.reads)</p>
-<p>To see what it produces, view the channel from inside the workflow:</p>
-<p>workflow { read_pairs_ch = channel.fromFilePairs(params.reads) read_pairs_ch.view() }</p>
-<p>Run it:</p>
-<p>pixi run nextflow run script3.nf</p>
-<p>It prints one item per sample:</p>
-<p>[gut, [/…/data/ggal/gut_1.fq, /…/data/ggal/gut_2.fq]]</p>
-<p>Read that line piece by piece — each item is a tuple with two parts:</p>
-<p>gut — the sample ID, taken from the shared prefix of the file names, and [gut_1.fq, gut_2.fq] — a list of the two files that belong to that sample. Tip Think of it like matching socks: fromFilePairs puts _1 and _2 together by their shared name, and the {1,2} glob tells Nextflow which part is allowed to differ.</p>
-<p>Note params.reads points at gut only, so you see one pair. Point it at all three samples to watch them grouped side by side:</p>
-<p>pixi run nextflow run script3.nf –reads ’data/ggal/*_{1,2}.fq’</p>
-<p>Because each item carries the ID and both files together, Salmon can process each sample in a single task — and Nextflow runs all three in parallel. That is the behaviour you will use in the next step.</p>
-<p>Expression quantification Look at the file “script4.nf”. This script adds a gene expression QUANTIFICATION process and a call to it within the workflow scope. Quantification requires the index transcriptome and RNA-Seq read pair fastq files.</p>
-<p>In the workflow scope, note how the index_ch channel is assigned as output in the INDEX process.</p>
-<p>Next, note that the first input channel for the QUANTIFICATION process is the previously declared index_ch, which contains the path to the salmon_index.</p>
-<p>Also, note that the second input channel for the QUANTIFICATION process, is the read_pair_ch we just created. This being a tuple** composed of two elements (a value: “sample_id” and a list of paths to the fastq reads: “reads”) in order to match the structure of the items emitted by the fromFilePairs channel factory.</p>
-<p>**tuple: a data structure consisting of multiple parts.</p>
-<p>pixi run nextflow run script4.nf</p>
-<p>Execute the same script again with more read files, as shown below:</p>
-<p>pixi run nextflow run script4.nf –reads ’data/ggal/*_{1,2}.fq’</p>
-<p>You will notice that the QUANTIFICATION process is executed multiple times.</p>
-<p>Nextflow parallelizes the execution of your workflow simply by providing multiple sets of input data to your script.</p>
-<p>ImportantTo do for you Add the process specific runtime environment definition for QUANTIFICATION to nextflow.config.</p>
-<p>Quality control Now we want to add another process, using our beloved FastQC to check the samples. The input is the same as the read pairs used in the QUANTIFICATION step.</p>
-<p>ImportantTo do for you Sit together with your neighbour and first think 5 minutes what you need to do to implement this new process.</p>
-<p>We will then discuss in class.</p>
-<p>MultiQC This last step collects the outputs from the QUANTIFICATION and FASTQC processes to create a final report using MultiQC.</p>
-<p>Again, what do you need to consider when adding this process to the pipeline?</p>
-<p>Tip We only want one task of MultiQC to be executed to produce one report. For this, it needs to wait for the report generating processes to stop. We can use the mix channel operator to combine the two channels followed by the collect operator, to return the complete channel contents as a single element.</p>
-<p>So the new line in the workflow scope looks like this:</p>
-<p>MULTIQC(quant_ch.mix(fastqc_ch).collect())</p>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

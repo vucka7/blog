@@ -9,12 +9,12 @@
 <link>https://vucka7.github.io/blog/</link>
 <atom:link href="https://vucka7.github.io/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>A blog built with Quarto</description>
-<generator>quarto-1.10.18</generator>
-<lastBuildDate>Mon, 14 Sep 2026 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.10.19</generator>
+<lastBuildDate>Fri, 18 Sep 2026 00:00:00 GMT</lastBuildDate>
 <item>
-  <title>Day 2 of the 5-day Odissey</title>
+  <title>Day 5 of the short Odissey</title>
   <dc:creator>Eva Rogelj</dc:creator>
-  <link>https://vucka7.github.io/blog/posts/day_2/</link>
+  <link>https://vucka7.github.io/blog/posts/day_5/</link>
   <description><![CDATA[ 
 
 
@@ -22,250 +22,163 @@
 
 
 
-<p>Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)</p>
+<p>Gigi plot this table!</p>
+<p>Today we learned about ggplot. The ggplot2 library is something that many are now already familiar with. I have recently found the tidyplots library [Quarto] (https://tidyplots.org/). It’s very nice as it builds on top of ggplot.</p>
+<p>One most important thing I have learned today was how to introduce a break into my y-axis. I can do that using the ggbreak library.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">wget <span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">-</span>qO<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> https<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="er" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">//</span>pixi.sh<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span>install.sh <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> sh</span></code></pre></div></div>
+font-style: inherit;">library</span>(ggbreak)</span></code></pre></div></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ggbreak v0.1.7 Learn more at https://yulab-smu.top/</code></pre>
 </div>
-<p>Everytime you need to initiate a pixi environment in the same folder, you’re working in</p>
+<div class="cell-output cell-output-stderr">
+<pre><code>If you use ggbreak in published research, please cite the following
+paper:
+
+S Xu, M Chen, T Feng, L Zhan, L Zhou, G Yu. Use ggbreak to effectively
+utilize plotting space to deal with large datasets and outliers.
+Frontiers in Genetics. 2021, 12:774846. doi: 10.3389/fgene.2021.774846</code></pre>
+</div>
+</div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">pixi init name_pixi_training <span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">-</span>c conda<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">ggplot</span>(merged_filtered <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">-</span>forge <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">-</span>c bioconda</span></code></pre></div></div>
+font-style: inherit;">filter</span>(Epitope <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"NANP5"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"NPDP"</span>)),</span>
+<span id="cb4-2">       <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(Timepoint), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> normalised, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> Epitope)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_boxplot</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-4">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb4-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Timepoint"</span>,</span>
+<span id="cb4-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Normalised ED50"</span>,</span>
+<span id="cb4-7">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Plasma antibody titres"</span></span>
+<span id="cb4-8">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_prism</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb4-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">plot.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">hjust =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>),</span>
+<span id="cb4-12">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">text =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span>)</span>
+<span id="cb4-13">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb4-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_y_break</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">breaks =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10000</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20000</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">scales =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">space =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb4-15"></span>
+<span id="cb4-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggsave</span>(</span>
+<span id="cb4-17">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">filename =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(figures.dir, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"boxplots_axis_break.png"</span>),</span>
+<span id="cb4-18">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">height =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">units =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"in"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">dpi =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">300</span></span>
+<span id="cb4-19">)</span></code></pre></div></div>
 </div>
-<p>There will be a pixi.toml file. It would look a little like this</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>[workspace]</span>
-<span id="cb3-2"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>channels <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"conda-forge"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"bioconda"</span>]</span>
-<span id="cb3-3"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>name <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"amrei_pixi_training"</span></span>
-<span id="cb3-4"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>platforms <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"linux-64"</span>]</span>
-<span id="cb3-5">version <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"0.1.0"</span></span>
-<span id="cb3-6"></span>
-<span id="cb3-7"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>[tasks]</span>
-<span id="cb3-8"></span>
-<span id="cb3-9"><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">6</span>[dependencies]</span></code></pre></div></div>
-</div>
-<p>1 Overview section of the environment. 2 Added channels - these are the sources we allow for our dependencies/ tools. 3 The name of the environment. 4 Operating system the environment is optimised for. 5 This is where we can define tasks - interesting, but not covered in this course. 6 Here will be the list of tool installed within the environment (once we have added them).</p>
-<p>pixi.lock The .lock file give you information on the channels you have decided to add, as well as the information on where the packages were downloaded from, license information, md5 information, and more.</p>
-<p>IMPORTANT: Do not delete the .toml or .lock files, or you will break your environment!</p>
-<p>If you want to add a dependency, you use add</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">pixi add quarto</span></code></pre></div></div>
-</div>
-<p>You could enter an environment with</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">pixi shell</span></code></pre></div></div>
-</div>
-<p>You exit the environment with exit</p>
-
-
-
- ]]></description>
-  <category>news</category>
-  <category>code</category>
-  <category>analysis</category>
-  <guid>https://vucka7.github.io/blog/posts/day_2/</guid>
-  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://vucka7.github.io/blog/posts/day_2/odissey_day2.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Day 1 of the 5-day Odissey</title>
-  <dc:creator>Eva Rogelj</dc:creator>
-  <link>https://vucka7.github.io/blog/posts/day_1/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<p>Day 1 - only beginning to dream about being a bioinformatician</p>
-<p>Data Management and reproducible research <img src="https://vucka7.github.io/blog/posts/day_1/data_life_cycle.png" class="img-fluid" alt="Alt text"></p>
-<p>FAIR principles</p>
-<p>FAIR principles rely on good data management practices in all phases of research:</p>
-<p>Research documentation Data organisation Information security Ethics and legislation</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://vucka7.github.io/blog/posts/day_1/fair-data-principles.webp" class="img-fluid figure-img"></p>
-<figcaption>Alt text</figcaption>
+<p><img src="https://vucka7.github.io/blog/posts/day_5/boxplots_axis_break.png" class="img-fluid figure-img"></p>
+<figcaption>Example plot with a break between 10000 and 20000</figcaption>
 </figure>
-</div>
-<p>Best practices for file organisation</p>
-<ul>
-<li>There is a folder for the raw data, which does not get altered.</li>
-<li>Code is kept separate from data.</li>
-<li>Use a version control system (at least for code) – e.g.&nbsp;git.</li>
-<li>There should be a README in every directory, describing the purpose of the directory and its contents.</li>
-<li>Use file naming schemes that makes it easy to find files and understand what they are (for humans and machines) and document them.</li>
-<li>Use non-proprietary formats – .csv rather than .xlsx</li>
-</ul>
-<p>Literate programming - Document your methods and workflows. - Document where and when you downloaded data. - Document the versions of the software that you ran.</p>
-<p>Future learnings in the course: - Version control - environment managers - containers in bioinformatics - workflow manager</p>
-<p>Github: Useful commands:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># CLONE A REPO</span></span>
-<span id="cb1-2">git clone https<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="er" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">//</span>github.com<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span>username<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span>repo.git</span>
-<span id="cb1-3"></span>
-<span id="cb1-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># BASIC WORKFLOW</span></span>
-<span id="cb1-5">git status                    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># See what changed</span></span>
-<span id="cb1-6">git add .                     <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Stage all changes</span></span>
-<span id="cb1-7">git commit <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>m <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"message"</span>       <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Commit with message</span></span>
-<span id="cb1-8">git push                      <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Push to GitHub</span></span>
-<span id="cb1-9">git pull                      <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Pull latest changes</span></span>
-<span id="cb1-10"></span>
-<span id="cb1-11"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># BRANCHES</span></span>
-<span id="cb1-12">git branch                    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># List branches</span></span>
-<span id="cb1-13">git branch new<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>branch         <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Create new branch</span></span>
-<span id="cb1-14">git checkout new<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>branch       <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Switch to branch</span></span>
-<span id="cb1-15">git checkout <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>b new<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>branch    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Create and switch</span></span>
-<span id="cb1-16">git push origin new<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>branch    <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Push branch to GitHub</span></span>
-<span id="cb1-17"></span>
-<span id="cb1-18"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># UNDO CHANGES</span></span>
-<span id="cb1-19">git restore filename          <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Undo changes to file</span></span>
-<span id="cb1-20">git reset HEAD<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>              <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Undo last commit (keep changes)</span></span>
-<span id="cb1-21">git revert HEAD               <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Undo last commit (create new commit)</span></span>
-<span id="cb1-22"></span>
-<span id="cb1-23"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># VIEW HISTORY</span></span>
-<span id="cb1-24">git log                       <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># See commits</span></span>
-<span id="cb1-25">git log <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">--</span>oneline             <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Shorter view</span></span>
-<span id="cb1-26">git diff                      <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># See what changed</span></span>
-<span id="cb1-27"></span>
-<span id="cb1-28"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># MERGE BRANCHES</span></span>
-<span id="cb1-29">git checkout main             <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Switch to main</span></span>
-<span id="cb1-30">git merge new<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>branch          <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Merge branch into main</span></span>
-<span id="cb1-31"></span>
-<span id="cb1-32"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># STASH (TEMPORARY SAVE)</span></span>
-<span id="cb1-33">git stash                     <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Save changes temporarily</span></span>
-<span id="cb1-34">git stash pop                 <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Restore changes</span></span></code></pre></div></div>
 </div>
 
 
@@ -274,234 +187,9 @@ font-style: inherit;"># Restore changes</span></span></code></pre></div></div>
   <category>news</category>
   <category>code</category>
   <category>analysis</category>
-  <guid>https://vucka7.github.io/blog/posts/day_1/</guid>
-  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://vucka7.github.io/blog/posts/day_1/suitcase.jpeg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Day 3 of the 5-day Odissey</title>
-  <dc:creator>Eva Rogelj</dc:creator>
-  <link>https://vucka7.github.io/blog/posts/day_3/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<p>Day 3 - Introduction to Nextflow When developing your code in bioinformatics, you will likely use different tool for different parts of your analyses. Traditionally, you would have about one script per tool, all of which you deploy by hand, one after the other. Together, this is called a workflowor pipeline.</p>
-<p>Manual deployment of pipelines can be tedious, especially if you have analyses with many steps, or many samples of different sizes that might need a varying amount of computational power. Luckily for you, other bioinformaticians and software developers have developed something to make your life much easier:</p>
-<p>Workflow managers Workflow managers provide a framework for the creation, execution, and monitoring of pipeline. &lt;…&gt; They simplify pipeline development, optimize resource usage, handle software installation and versions, and run on different compute platforms, enabling workflow portability and sharing. Wratten et al.&nbsp;(2021) Nature Methods</p>
-<p>With workflow managers you can develop an automated pipeline from your scripts that can then be run on a variety of systems. Once it is developed, execute a single command to start the pipeline. The manager then coordinates the deployment of the scripts in the appropriate sequence, monitors the jobs, handles the file transfers between scripts, gathers the output, and handles re-execution of failed jobs for you. Workflow managed pipelines can run containers, which eliminates software installation and version conflicts.</p>
-<p>That means that by design the pipelines are:</p>
-<p>portable more time efficient (no more downtime between pipeline steps) more resource efficient (mostly, but this might vary depending how skilled a developer you yourself are) easier to install (especially when combined with containers, or environment managers) more reproducible There are in principle two different flavors of workflow managers: snakemake, and nextflow. In this course we will be introducing you to nexflow.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://vucka7.github.io/blog/posts/day_3/nextflow.jpg" class="img-fluid figure-img"></p>
-<figcaption>Alt text</figcaption>
-</figure>
-</div>
-<p>In nextflow, your scripts are turned into processes, connected by channels that contain the data - input, output etc. The order of the processes, and their interaction with each other, is specfied in the workflow scope.</p>
-<p>The executable part of the processes, the so called script, can be written in any language, so in theory you could always choose the language that is best suited for the job (in practice you might be limited to the languages you know). However, the modularity of the processes allows for easy re-use of existing scripts and processes.</p>
-<p>When moving the pipeline from one system to another, the script stays the same and does not change, the same containers are used. The only thing that changes are the parameters that pertain to the environment and available resources. In other words, with nextflow, the functional logic, the processes, are separated from the executive (how the workflow runs). This makes the nextflow pipelines highly interoperable and portable. They can be run on various platforms, such as HPC clusters, local computers, cloud systems etc..</p>
-<p>The pipelines can be integrated with version control tools, such as git or bitbucket, and containers technologies, such as apptainer or docker. This makes the pipeline very reproducible.</p>
-<p>The nextflow pipelines are extremely scalable, can be developed on a few samples and easily be run on hundreds or thousands of samples. When possible, processes are run in parallel automatically.</p>
-<p>Nexflow performs automatic checks on the processes and their in- and output. It can automatically resume execution at a point of failure without having to re-compute successfully completed parts.</p>
-<p>Nextflow is open source.</p>
-<p>Here is a more visual summary of some of the points above: Write code in any language orchestrate tasks with dataflow programming define software dependencies via containers built-in version control with Git Task orchestration and execution</p>
-<p>How to work with Nextflow? Any process can define one or more channels as an input and output. The interaction between these processes, and ultimately the workflow execution flow itself, is implicitly defined by these input and output declarations.</p>
-<p>Process block looks a little bit like this:</p>
-<pre class="{bash}"><code>#| eval: false
-process PROCESS_NAME{
-    // directives
-    container
-    
-    input:
-      data z
-      data y
-      data x
-
-    script:
-      task1
-      task2
-      task3
-
-    output:
-      output x
-      output y
-      output z
-}</code></pre>
-<p>We started with:</p>
-<pre class="{bash}"><code>#| eval: false
-pixi init -c conda-forge -c bioconda</code></pre>
-<p>Something like this is a code in a .txt file</p>
-<pre class="{bash}"><code>#| eval: false
-#!/usr/bin/env nextflow
-
-params.greeting = 'Hello world!'
-
-process SPLITLETTERS {
-    input:
-    val x
-
-    output:
-    path 'chunk_*'
-
-    script:
-    """
-    printf '$x' | split -b 6 - chunk_
-    """
-}
-
-process CONVERTTOUPPER {
-    input:
-    path y
-
-    output:
-    stdout
-
-    script:
-    """
-    cat $y | tr '[a-z]' '[A-Z]'
-    """
-}
-
-workflow {
-    greeting_ch = Channel.of(params.greeting)
-    letters_ch = SPLITLETTERS(greeting_ch)
-    results_ch = CONVERTTOUPPER(letters_ch.flatten())
-    results_ch.view{ it }
-}</code></pre>
-<p>If you run:</p>
-<pre class="{bash}"><code>#| eval: false
-pixi run nextflow run hello.nf</code></pre>
-<p>Output looks like N E X T F L O W ~ version 25.04.7</p>
-<p>Launching <code>hello.nf</code> [jolly_faraday] DSL2 - revision: f5e335f983</p>
-<p>executor &gt; local (3) [96/fd5f07] SPLITLETTERS (1) [100%] 1 of 1 ✔ [7e/dad424] CONVERTTOUPPER (2) [100%] 2 of 2 ✔ HELLO WORLD!</p>
-<p>The order might be different, both processes are executed next to each other.</p>
-<p>If you want to change something, but not re-run the whole thing, you can use:</p>
-<pre class="{bash}"><code>#| eval: false
-pixi run nextflow run hello.nf -resume</code></pre>
-<p>Workflow parameters can be altered As we have seen workflow parameters are simply declared by prepending the prefix params to a variable name, separated by a dot character (e.g.&nbsp;params.greeting). Their value can alternatively be specified on the command line by prefixing the parameter name with a double dash character, i.e.&nbsp;–paramName.</p>
-<p>Nextflow log can get crowded - use this command to remove log files.</p>
-<pre class="{bash}"><code>#| eval: false
-pixi run nextflow log
-pixi run nextflow clean -f
-pixi run nextflow clean -before &lt;RUN NAME&gt; -f</code></pre>
-<p>Nextflow RNAseq pipeline</p>
-<p>Salmon — quantifies transcripts from RNA-seq data. FastQC — performs quality control on high-throughput sequencing data. MultiQC — searches a directory for analysis logs and compiles them into a single HTML report.</p>
-<p>Step by step — and why each tool is used when:</p>
-<p>Index the transcriptome reference — salmon index. Salmon cannot quantify reads against a plain FASTA; it first needs to turn the reference into a fast, searchable index. We do this once at the start, and every sample reuses the same index.</p>
-<p>Quantify expression — salmon quant. For each sample, Salmon maps the read pair against the index and estimates how much of each transcript is present. Here Salmon turns raw reads into numbers to analyse.</p>
-<p>Check read quality — FastQC. In parallel, FastQC inspects the raw reads of each sample (base quality, adapter content, and so on). We run it alongside quantification, not after, because quality control is independent of the counting.</p>
-<p>Summarise everything — MultiQC. Finally, MultiQC gathers the logs from all the samples (Salmon and FastQC) into one HTML report, so you read a single summary instead of opening dozens of files. It waits for the all earlier steps to finish before it runs.</p>
-<p>First step: Set the executor You can specify your computer power in a file called nextflow.config.</p>
-<pre class="{bash}"><code>#| eval: false
-process{
-    executor = "slurm"
-    time = '2.h'  // Set default time limit for all processes
-    
-    // Other settings
-    cpus = 4
-}
-
-resume = true
-singularity.enabled = true
-
-executor {
-    account = 'your_project_account'
-}</code></pre>
-<p>This sets the executor for every process to slurm.</p>
-<p>We set resume to true, so it is automatically used for all our runs (which means we do not have to specify this in our nextflow run command anymore).</p>
-<p>We enable singularity and set some singularity run options.</p>
-<p>Lastly, we specify the account name for the slurm execution, replace the placeholder with the actual compute allocation ID.</p>
-<p>This nextflow.config file is implicitly called when we execute nextflow from the folder it is in. We do not have to explicitely name it in the nextflow run command.</p>
-<p>Define the workflow parameters Parameters are inputs and options that can be changed when the workflow is run.</p>
-<p>The script script1.nf defines the workflow input parameters:</p>
-<p>#!/usr/bin/env nextflow</p>
-<p>params.reads = “<img src="https://latex.codecogs.com/png.latex?projectDir/data/ggal/gut_%7B1,2%7D.fq%22%0Aparams.transcriptome_file%20=%20%22">projectDir/data/ggal/transcriptome.fa” params.multiqc = “$projectDir/multiqc”</p>
-<p>workflow { println “reads: $params.reads” }</p>
-<p>Run it by using the following command:</p>
-<p>pixi run nextflow run script1.nf</p>
-<p>Note Note that we do not need to specify that we want to use the nextflow.config file. Since it is in the same directory it will be used automatically.</p>
-<p>ImportantTo do for you Modify script1.nf by adding a fourth parameter named outdir and set it to a default path that will be used as the workflow output directory.</p>
-<p>Create a transcriptome index file Nextflow allows the execution of any command or script by using a process definition.</p>
-<p>A process is defined by providing three main declarations: the process input, output, and the command script.</p>
-<p>To add a transcriptome INDEX processing step, add the following code blocks to your script1.nf. Alternatively, these code blocks have already been added to script2.nf.</p>
-<p>process INDEX { input: path transcriptome</p>
-<pre><code>output:
-path 'salmon_index'
-
-script:
-"""
-salmon index --threads $task.cpus -t $transcriptome -i salmon_index
-"""</code></pre>
-<p>}</p>
-<p>Additionally, replace the existing workflow scope with an input channel definition and the index process:</p>
-<p>workflow { index_ch = INDEX(file(params.transcriptome_file, checkIfExists: true)) }</p>
-<p>Here, the params.transcriptome_file parameter is used as the input for the INDEX process. The INDEX process (using the salmon tool) creates salmon_index, an indexed transcriptome that is passed as an output to the index_ch channel.</p>
-<p>Run with:</p>
-<p>pixi run nextflow run script1.nf</p>
-<p>Caution Why doesn’t this work? What have we forgotten?</p>
-<p>EITHER add Salmon to your environment pixi add salmon</p>
-<p>OR add Salmon in a container to the process Adding a container to the process and running the tool via the container is more reproducible than adding it to your environment. Use the container directive and add the URL to the container to the process scope, above the input block:</p>
-<p>container ‘oras://community.wave.seqera.io/library/salmon:2.7.0–cb05356ce9eb88b7’</p>
-<p>Note You can also specify a process specific output directory in the process block:</p>
-<p>publishDir “$params.outdir/salmon”</p>
-<p>This command line would typically be located just below the container directive.</p>
-<p>By default publishDir links the published files back into the work/ directory rather than copying them. This is fast and saves space, but it means the files disappear if you clean work/. Add mode: ‘copy’ when you want an independent copy that survives a cleanup, for example a result you intend to keep or share.</p>
-<p>Define run time environment Remember how Nextflow is big on execution abstraction? This is where we will put this concept into practice. In the nextflow.config add the following just before the closing squiggly bracket from the process definitions:</p>
-<pre><code>withName:'INDEX'{
-    time = 15.m
-    cpus = 2
-}</code></pre>
-<p>With this we specify the alloted time and cpus for this specific process.</p>
-<p>To specify memory add mem = xx.GB - check with your cluster to see how much memory is available and how to specify it. In our case we don’t need to because the memory implicit in the 2 cpus is enough for our purposes.</p>
-<p>pixi run nextflow run script1.nf</p>
-<p>Interlude: Visualize tuples Salmon needs both reads of a pair together to quantify a sample. Our data folder holds six files — three samples, two files each:</p>
-<p>gut_1.fq gut_2.fq liver_1.fq liver_2.fq lung_1.fq lung_2.fq If we simply collected every .fq into one channel, Nextflow would see six loose files with nothing saying that gut_1 and gut_2 belong together. We need them grouped by sample.</p>
-<p>That is what the fromFilePairs channel factory does, and we can have a look at it in script3.nf. The {1,2} in the pattern marks the part that differs between the two files of a pair; Nextflow groups the files that share everything else:</p>
-<p>read_pairs_ch = channel.fromFilePairs(params.reads)</p>
-<p>To see what it produces, view the channel from inside the workflow:</p>
-<p>workflow { read_pairs_ch = channel.fromFilePairs(params.reads) read_pairs_ch.view() }</p>
-<p>Run it:</p>
-<p>pixi run nextflow run script3.nf</p>
-<p>It prints one item per sample:</p>
-<p>[gut, [/…/data/ggal/gut_1.fq, /…/data/ggal/gut_2.fq]]</p>
-<p>Read that line piece by piece — each item is a tuple with two parts:</p>
-<p>gut — the sample ID, taken from the shared prefix of the file names, and [gut_1.fq, gut_2.fq] — a list of the two files that belong to that sample. Tip Think of it like matching socks: fromFilePairs puts _1 and _2 together by their shared name, and the {1,2} glob tells Nextflow which part is allowed to differ.</p>
-<p>Note params.reads points at gut only, so you see one pair. Point it at all three samples to watch them grouped side by side:</p>
-<p>pixi run nextflow run script3.nf –reads ’data/ggal/*_{1,2}.fq’</p>
-<p>Because each item carries the ID and both files together, Salmon can process each sample in a single task — and Nextflow runs all three in parallel. That is the behaviour you will use in the next step.</p>
-<p>Expression quantification Look at the file “script4.nf”. This script adds a gene expression QUANTIFICATION process and a call to it within the workflow scope. Quantification requires the index transcriptome and RNA-Seq read pair fastq files.</p>
-<p>In the workflow scope, note how the index_ch channel is assigned as output in the INDEX process.</p>
-<p>Next, note that the first input channel for the QUANTIFICATION process is the previously declared index_ch, which contains the path to the salmon_index.</p>
-<p>Also, note that the second input channel for the QUANTIFICATION process, is the read_pair_ch we just created. This being a tuple** composed of two elements (a value: “sample_id” and a list of paths to the fastq reads: “reads”) in order to match the structure of the items emitted by the fromFilePairs channel factory.</p>
-<p>**tuple: a data structure consisting of multiple parts.</p>
-<p>pixi run nextflow run script4.nf</p>
-<p>Execute the same script again with more read files, as shown below:</p>
-<p>pixi run nextflow run script4.nf –reads ’data/ggal/*_{1,2}.fq’</p>
-<p>You will notice that the QUANTIFICATION process is executed multiple times.</p>
-<p>Nextflow parallelizes the execution of your workflow simply by providing multiple sets of input data to your script.</p>
-<p>ImportantTo do for you Add the process specific runtime environment definition for QUANTIFICATION to nextflow.config.</p>
-<p>Quality control Now we want to add another process, using our beloved FastQC to check the samples. The input is the same as the read pairs used in the QUANTIFICATION step.</p>
-<p>ImportantTo do for you Sit together with your neighbour and first think 5 minutes what you need to do to implement this new process.</p>
-<p>We will then discuss in class.</p>
-<p>MultiQC This last step collects the outputs from the QUANTIFICATION and FASTQC processes to create a final report using MultiQC.</p>
-<p>Again, what do you need to consider when adding this process to the pipeline?</p>
-<p>Tip We only want one task of MultiQC to be executed to produce one report. For this, it needs to wait for the report generating processes to stop. We can use the mix channel operator to combine the two channels followed by the collect operator, to return the complete channel contents as a single element.</p>
-<p>So the new line in the workflow scope looks like this:</p>
-<p>MULTIQC(quant_ch.mix(fastqc_ch).collect())</p>
-
-
-
- ]]></description>
-  <category>news</category>
-  <category>code</category>
-  <category>analysis</category>
-  <guid>https://vucka7.github.io/blog/posts/day_3/</guid>
-  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://vucka7.github.io/blog/posts/day_3/odissey_day2.jpg" medium="image" type="image/jpeg"/>
+  <guid>https://vucka7.github.io/blog/posts/day_5/</guid>
+  <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://vucka7.github.io/blog/posts/day_5/dog_stop_sign.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Day 4 of the 5-day Odissey</title>
@@ -518,8 +206,7 @@ salmon index --threads $task.cpus -t $transcriptome -i salmon_index
 <h1>Day 4: Pipelines - the horror: nf-core</h1>
 <section id="nfcore-introduction" class="level2">
 <h2 class="anchored" data-anchor-id="nfcore-introduction">nfcore introduction</h2>
-<p><a href="https://nf-co.re/">Nf-core link</a></p>
-<p>Nf-core is a very active community around nextflow. Volunteers develop nextflow pipelines around a variety of bioinformatic data.</p>
+<p>Nf-core is a very active community around nextflow. Volunteers develop nextflow pipelines around a variety of bioinformatic data. <a href="https://nf-co.re/">Nf-core link</a></p>
 <p>All nf-core pipelines are open source and the source code is available on github. The pipelines are developed by volunteers, who can have a very varied background.</p>
 <p>A standard one that we tried first is rnaseq: <a href="https://nf-co.re/rnaseq/3.26.0/">rnaseq</a></p>
 <p>But one applicable to my research if airrflow: <a href="https://nf-co.re/airrflow/5.1.1/">airrflow</a></p>
@@ -668,7 +355,12 @@ background-color: null;
 font-style: inherit;">&lt;</span>OUTDIR<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span></span></code></pre></div></div>
-<iframe src="Airrflow results summary report.pdf" width="100%" height="800px"></iframe>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vucka7.github.io/blog/posts/day_4/airrflow_workflow_overview.png" class="img-fluid figure-img"></p>
+<figcaption>Airrflow_workflow_overview</figcaption>
+</figure>
+</div>
 
 
 </section>
@@ -679,13 +371,13 @@ font-style: inherit;">&gt;</span></span></code></pre></div></div>
   <category>code</category>
   <category>analysis</category>
   <guid>https://vucka7.github.io/blog/posts/day_4/</guid>
-  <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+  <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
   <media:content url="https://vucka7.github.io/blog/posts/day_4/odissey_day2.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Day 2 of the short Odissey</title>
+  <title>Day 3 of the 5-day Odyssey</title>
   <dc:creator>Eva Rogelj</dc:creator>
-  <link>https://vucka7.github.io/blog/posts/day_5/</link>
+  <link>https://vucka7.github.io/blog/posts/day_3/</link>
   <description><![CDATA[ 
 
 
@@ -693,17 +385,1033 @@ font-style: inherit;">&gt;</span></span></code></pre></div></div>
 
 
 
-<p>Day 2 Lecture 1: setting up an environment. Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)</p>
+<section id="day-3-nextflow-finally-no-more-running-one-script-after-another-by-hand." class="level2">
+<h2 class="anchored" data-anchor-id="day-3-nextflow-finally-no-more-running-one-script-after-another-by-hand.">Day 3: Nextflow! Finally, no more running one script after another by hand.</h2>
+<p>Why a workflow manager? Oh Why?</p>
+<p>In bioinformatics you usually end up with one script per tool, and you run them one by one. That whole chain is a <strong>workflow</strong> (or pipeline). It gets old fast, especially with lots of samples that all need different amounts of compute.</p>
+<p>A workflow manager turns your scripts into one automated pipeline. One command and it:</p>
+<ul>
+<li>runs everything in the right order</li>
+<li>keeps an eye on the jobs</li>
+<li>moves files between steps</li>
+<li>re-runs whatever failed</li>
+</ul>
+<p>Bonus: pipelines are portable, reproducible, easier to install (especially with containers) and don’t waste time between steps.</p>
+<p>There are two big ones, <strong>Snakemake</strong> and <strong>Nextflow</strong>. We’re doing Nextflow.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vucka7.github.io/blog/posts/day_3/nextflow.jpg" class="img-fluid figure-img" alt="Overview diagram of how Nextflow works"></p>
+<figcaption>Nextflow overview</figcaption>
+</figure>
+</div>
+</section>
+<section id="nextflow-in-a-nutshell" class="level2">
+<h2 class="anchored" data-anchor-id="nextflow-in-a-nutshell">Nextflow in a nutshell</h2>
+<ul>
+<li>Scripts become <strong>processes</strong>, connected by <strong>channels</strong> (the data flowing in and out).</li>
+<li>The <strong>workflow</strong> block says what runs in which order.</li>
+<li>A process can run any language, so you can reuse old scripts.</li>
+<li>Same pipeline on a laptop, an HPC cluster or the cloud. Only the config changes.</li>
+<li>Works with git and containers (Apptainer, Docker).</li>
+<li>Develop on a few samples, then scale to hundreds.</li>
+<li>If something breaks, it can <strong>resume</strong> from the failed step instead of starting over.</li>
+</ul>
+<p>A process looks roughly like this (pseudo-code, don’t run it):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb1-1">process PROCESS_NAME <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb1-2">    container</span>
+<span id="cb1-3">    input<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb1-4">      data x</span>
+<span id="cb1-5">    script<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb1-6">      task1</span>
+<span id="cb1-7">      task2</span>
+<span id="cb1-8">    output<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb1-9">      output x</span>
+<span id="cb1-10"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div></div>
+</section>
+<section id="first-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="first-workflow">First workflow</h2>
+<p>Start from a pixi environment (see <a href="day2.qmd">Day 2</a>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| eval: false</span></span>
+<span id="cb2-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> init <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c</span> conda-forge <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c</span> bioconda</span></code></pre></div></div>
+<p>Then put this in <code>hello.nf</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb3-1">#<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/usr/</span>bin<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>env nextflow</span>
+<span id="cb3-2"></span>
+<span id="cb3-3">params<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>greeting <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Hello world!'</span></span>
+<span id="cb3-4"></span>
+<span id="cb3-5">process SPLITLETTERS <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb3-6">    input<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb3-7">    val x</span>
+<span id="cb3-8"></span>
+<span id="cb3-9">    output<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb3-10">    path <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'chunk_*'</span></span>
+<span id="cb3-11"></span>
+<span id="cb3-12">    script<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb3-13">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb3-14"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    printf '</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$x</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' | split -b 6 - chunk_</span></span>
+<span id="cb3-15"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    """</span></span>
+<span id="cb3-16"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb3-17"></span>
+<span id="cb3-18">process CONVERTTOUPPER <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb3-19">    input<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb3-20">    path y</span>
+<span id="cb3-21"></span>
+<span id="cb3-22">    output<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb3-23">    stdout</span>
+<span id="cb3-24"></span>
+<span id="cb3-25">    script<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb3-26">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb3-27"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    cat </span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$y</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> | tr '[a-z]' '[A-Z]'</span></span>
+<span id="cb3-28"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    """</span></span>
+<span id="cb3-29"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb3-30"></span>
+<span id="cb3-31">workflow <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb3-32">    greeting_ch <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">Channel</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">of</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>params<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>greeting<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb3-33">    letters_ch <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">SPLITLETTERS</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>greeting_ch<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb3-34">    results_ch <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">CONVERTTOUPPER</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>letters_ch<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">flatten</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">())</span></span>
+<span id="cb3-35">    results_ch<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">view</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span> it <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb3-36"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| eval: false</span></span>
+<span id="cb4-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow run hello.nf</span></code></pre></div></div>
+<p>Output (the order can flip, because the two <code>CONVERTTOUPPER</code> tasks run at the same time):</p>
+<pre class="text"><code>executor &gt;  local (3)
+[96/fd5f07] SPLITLETTERS (1)   [100%] 1 of 1 ✔
+[7e/dad424] CONVERTTOUPPER (2) [100%] 2 of 2 ✔
+HELLO
+WORLD!</code></pre>
+<p>Changed something small and don’t want to redo everything? Add <code>-resume</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| eval: false</span></span>
+<span id="cb6-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow run hello.nf <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-resume</span></span></code></pre></div></div>
+<p>Parameters live under <code>params.</code> (like <code>params.greeting</code>) and can be overridden on the command line with <code>--greeting</code>.</p>
+<p>To check and clean up old runs:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| eval: false</span></span>
+<span id="cb7-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow log</span>
+<span id="cb7-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow clean <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-f</span></span>
+<span id="cb7-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow clean <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-before</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>RUN NAME<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> -f</span></code></pre></div></div>
+</section>
+<section id="the-rna-seq-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="the-rna-seq-pipeline">The RNA-seq pipeline</h2>
+<p>Three tools:</p>
+<ul>
+<li><strong>Salmon</strong>: quantifies transcripts from RNA-seq reads</li>
+<li><strong>FastQC</strong>: quality control of the raw reads</li>
+<li><strong>MultiQC</strong>: collects all the logs into one HTML report</li>
+</ul>
+<p>And the order makes sense once you see why:</p>
+<ol type="1">
+<li><strong>Index</strong> the transcriptome (<code>salmon index</code>). Salmon needs a searchable index, not a plain FASTA. Done once, reused by every sample.</li>
+<li><strong>Quantify</strong> (<code>salmon quant</code>). Maps each read pair against the index and estimates how much of each transcript is there.</li>
+<li><strong>FastQC</strong>. Runs alongside quantification, since QC doesn’t depend on the counting.</li>
+<li><strong>MultiQC</strong>. Waits for everything, then gives one report instead of dozens of files.</li>
+</ol>
+<section id="config" class="level3">
+<h3 class="anchored" data-anchor-id="config">Config</h3>
+<p>Everything about <em>where</em> the pipeline runs goes in <code>nextflow.config</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb8-1">process <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb8-2">    executor <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'slurm'</span></span>
+<span id="cb8-3">    time <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.</span>h</span>
+<span id="cb8-4">    cpus <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span></span>
+<span id="cb8-5"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb8-6"></span>
+<span id="cb8-7">resume <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">true</span></span>
+<span id="cb8-8">singularity<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>enabled <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">true</span></span>
+<span id="cb8-9"></span>
+<span id="cb8-10">executor <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb8-11">    account <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'your_project_account'</span></span>
+<span id="cb8-12"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div></div>
+<p>So: everything goes to <strong>slurm</strong>, <code>resume</code> is always on (no more <code>-resume</code>), Singularity is enabled for containers, and the account is whatever your allocation ID is. Nextflow finds this file by itself as long as you run from the same folder.</p>
+</section>
+<section id="parameters" class="level3">
+<h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
+<p><code>script1.nf</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb9-1">#<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/usr/</span>bin<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>env nextflow</span>
+<span id="cb9-2"></span>
+<span id="cb9-3">params<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>reads <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$projectDir</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/data/ggal/gut_{1,2}.fq"</span></span>
+<span id="cb9-4">params<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>transcriptome_file <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$projectDir</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/data/ggal/transcriptome.fa"</span></span>
+<span id="cb9-5">params<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>multiqc <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$projectDir</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/multiqc"</span></span>
+<span id="cb9-6"></span>
+<span id="cb9-7">workflow <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb9-8">    println <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"reads: </span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$params</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">reads</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb9-9"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| eval: false</span></span>
+<span id="cb10-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow run script1.nf</span></code></pre></div></div>
+</section>
+<section id="index-the-transcriptome" class="level3">
+<h3 class="anchored" data-anchor-id="index-the-transcriptome">Index the transcriptome</h3>
+<p>A process has an <strong>input</strong>, an <strong>output</strong> and a <strong>script</strong>. Add this to <code>script1.nf</code> (already in <code>script2.nf</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb11-1">process INDEX <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb11-2">    input<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb11-3">    path transcriptome</span>
+<span id="cb11-4"></span>
+<span id="cb11-5">    output<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb11-6">    path <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'salmon_index'</span></span>
+<span id="cb11-7"></span>
+<span id="cb11-8">    script<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb11-9">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb11-10"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    salmon index --threads </span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$task</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">cpus</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> -t </span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$transcriptome</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> -i salmon_index</span></span>
+<span id="cb11-11"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">    """</span></span>
+<span id="cb11-12"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div></div>
+<p>and swap the workflow block for:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb12-1">workflow <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb12-2">    index_ch <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">INDEX</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">file</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>params<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>transcriptome_file<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> checkIfExists<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">true</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">))</span></span>
+<span id="cb12-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div></div>
+<p>Run it and… it fails. What did we forget? Salmon isn’t installed yet. Two options:</p>
+<p><strong>A. Add it to the environment</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| eval: false</span></span>
+<span id="cb13-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> add salmon</span></code></pre></div></div>
+<p><strong>B. Use a container</strong> (more reproducible). Add this inside the process, above <code>input</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb14-1">container <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'oras://community.wave.seqera.io/library/salmon:2.7.0--cb05356ce9eb88b7'</span></span></code></pre></div></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can also give a process its own output folder, just under <code>container</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb15-1">publishDir <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">$params</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">outdir</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/salmon"</span></span></code></pre></div></div>
+<p>By default it <em>links</em> files into <code>work/</code>, which is fast but the files vanish if you clean <code>work/</code>. Add <code>mode: 'copy'</code> for results you want to keep.</p>
+</div>
+</div>
+</section>
+<section id="resources-per-process" class="level3">
+<h3 class="anchored" data-anchor-id="resources-per-process">Resources per process</h3>
+<p>In <code>nextflow.config</code>, inside the <code>process</code> block (before its closing brace):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb16-1">withName<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'INDEX'</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb16-2">    time <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15.</span>m</span>
+<span id="cb16-3">    cpus <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb16-4"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div></div>
+<p>Need memory? Add something like <code>memory = 8.GB</code>. Here 2 CPUs come with enough, so I skipped it.</p>
+</section>
+<section id="quick-detour-tuples" class="level3">
+<h3 class="anchored" data-anchor-id="quick-detour-tuples">Quick detour: tuples</h3>
+<p>Salmon needs both reads of a pair together. The data folder has six files (three samples, two each):</p>
+<pre class="text"><code>gut_1.fq    gut_2.fq
+liver_1.fq  liver_2.fq
+lung_1.fq   lung_2.fq</code></pre>
+<p><code>fromFilePairs</code> groups them for us (<code>script3.nf</code>). The <code>{1,2}</code> marks the part that’s allowed to differ:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb18-1">workflow <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb18-2">    read_pairs_ch <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> channel<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fromFilePairs</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>params<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>reads<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb18-3">    read_pairs_ch<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">view</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">()</span></span>
+<span id="cb18-4"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div></div>
+<p>Each item is a <strong>tuple</strong>: the sample ID plus the list of its two files.</p>
+<pre class="text"><code>[gut, [/.../data/ggal/gut_1.fq, /.../data/ggal/gut_2.fq]]</code></pre>
+<p>Think matching socks: <code>_1</code> and <code>_2</code> get paired by their shared name. <code>params.reads</code> only points at <code>gut</code>, so to see all three:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| eval: false</span></span>
+<span id="cb20-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow run script3.nf <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--reads</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'data/ggal/*_{1,2}.fq'</span></span></code></pre></div></div>
+</section>
+<section id="quantification" class="level3">
+<h3 class="anchored" data-anchor-id="quantification">Quantification</h3>
+<p><code>script4.nf</code> adds <code>QUANTIFICATION</code>. It takes two inputs: the <code>index_ch</code> from before, and the read pairs tuple (<code>sample_id</code> plus <code>reads</code>).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| eval: false</span></span>
+<span id="cb21-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow run script4.nf</span>
+<span id="cb21-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> run nextflow run script4.nf <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--reads</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'data/ggal/*_{1,2}.fq'</span></span></code></pre></div></div>
+<p>With more files, <code>QUANTIFICATION</code> just runs multiple times in parallel. That’s Nextflow doing its thing.</p>
+</section>
+<section id="fastqc" class="level3">
+<h3 class="anchored" data-anchor-id="fastqc">FastQC</h3>
+<p>Same idea, same input as <code>QUANTIFICATION</code>.</p>
+</section>
+<section id="multiqc" class="level3">
+<h3 class="anchored" data-anchor-id="multiqc">MultiQC</h3>
+<p>Last step: collect the outputs of <code>QUANTIFICATION</code> and <code>FASTQC</code> into a report. What do you need to think about here?</p>
+<p>We want <strong>one</strong> MultiQC task and <strong>one</strong> report, so it has to wait for everything else. Combine the channels with <code>mix</code>, then <code>collect</code> them into a single element:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode groovy code-with-copy"><code class="sourceCode groovy"><span id="cb22-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">MULTIQC</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>quant_ch<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mix</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>fastqc_ch<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">).</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">collect</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">())</span></span></code></pre></div></div>
+<p>:::</p>
 
 
+</section>
+</section>
 
  ]]></description>
   <category>news</category>
   <category>code</category>
   <category>analysis</category>
-  <guid>https://vucka7.github.io/blog/posts/day_5/</guid>
+  <guid>https://vucka7.github.io/blog/posts/day_3/</guid>
+  <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://vucka7.github.io/blog/posts/day_3/odissey_day2.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Day 2 of the 5-day Odyssey</title>
+  <dc:creator>Eva Rogelj</dc:creator>
+  <link>https://vucka7.github.io/blog/posts/day_2/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<section id="day-2-setting-up-an-environment" class="level2">
+<h2 class="anchored" data-anchor-id="day-2-setting-up-an-environment">Day 2: Setting up an environment</h2>
+<p>Today we talked about reproducible environments with <a href="https://pixi.prefix.dev/latest/workspace/environment/">Pixi</a>.</p>
+<section id="installing-pixi" class="level3">
+<h3 class="anchored" data-anchor-id="installing-pixi">Installing Pixi</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">wget</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-qO-</span> https://pixi.sh/install.sh <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sh</span></span></code></pre></div></div>
+</section>
+<section id="creating-an-environment" class="level3">
+<h3 class="anchored" data-anchor-id="creating-an-environment">Creating an environment</h3>
+<p>Run this once in the folder you’re working in:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> init name_pixi_training <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c</span> conda-forge <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c</span> bioconda</span></code></pre></div></div>
+<p>This creates a <code>pixi.toml</code> file, which looks something like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-3" style="background: #f1f3f5;"><pre class="sourceCode toml code-annotation-code code-with-copy code-annotated"><code class="sourceCode toml"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[workspace]</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-2" class="code-annotation-target"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">channels</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"conda-forge"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bioconda"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-3-3" class="code-annotation-target"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">name</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"name_pixi_training"</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-3-4" class="code-annotation-target"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">platforms</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"linux-64"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">]</span></span>
+<span id="annotated-cell-3-5"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">version</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0.1.0"</span></span>
+<span id="annotated-cell-3-6"></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-3-7" class="code-annotation-target"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[tasks]</span></span>
+<span id="annotated-cell-3-8"></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-3-9" class="code-annotation-target"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[dependencies]</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">Overview section of the environment.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="2" data-code-annotation="2">Channels: the sources we allow our tools and dependencies to come from.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="3" data-code-annotation="3">The name of the environment.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="4" data-code-annotation="4">The operating system the environment is optimised for.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="7" data-code-annotation="5">Where tasks can be defined</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="9" data-code-annotation="6">The list of tools installed in the environment.</span>
+</dd>
+</dl>
+</section>
+<section id="the-lock-file" class="level3">
+<h3 class="anchored" data-anchor-id="the-lock-file">The lock file</h3>
+<p><code>pixi.lock</code> record of the channels and package source, license information, md5 checksums, and more.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not delete the <code>pixi.toml</code> or <code>pixi.lock</code> files. It breaks the environment, which will make you sad :(</p>
+</div>
+</div>
+</section>
+<section id="using-the-environment" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-environment">Using the environment</h3>
+<p>Add a dependency with <code>add</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> add quarto</span></code></pre></div></div>
+<p>Enter the environment:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> shell</span></code></pre></div></div>
+<p>Leave it again with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">exit</span></span></code></pre></div></div>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://vucka7.github.io/blog/posts/day_2/</guid>
+  <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://vucka7.github.io/blog/posts/day_2/odissey_day2.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Day 1 of the 5-day Odyssey</title>
+  <dc:creator>Eva Rogelj</dc:creator>
+  <link>https://vucka7.github.io/blog/posts/day_1/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<section id="day-1-only-beginning-to-dream-about-being-a-bioinformatician" class="level2">
+<h2 class="anchored" data-anchor-id="day-1-only-beginning-to-dream-about-being-a-bioinformatician">Day 1: only beginning to dream about being a bioinformatician</h2>
+<p>Today was all about <strong>data management and reproducible research</strong>: the habits that make an analysis something you (and others) can trust and repeat.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vucka7.github.io/blog/posts/day_1/data_life_cycle.png" class="img-fluid figure-img" alt="Diagram of the research data life cycle"></p>
+<figcaption>The research data life cycle</figcaption>
+</figure>
+</div>
+</section>
+<section id="fair-principles" class="level2">
+<h2 class="anchored" data-anchor-id="fair-principles">FAIR principles</h2>
+<p>Data should be <strong>F</strong>indable, <strong>A</strong>ccessible, <strong>I</strong>nteroperable and <strong>R</strong>eusable. The FAIR principles rely on good data management in every phase of research:</p>
+<ul>
+<li>Research documentation</li>
+<li>Data organisation</li>
+<li>Information security</li>
+<li>Ethics and legislation</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://vucka7.github.io/blog/posts/day_1/fair-data-principles.webp" class="img-fluid figure-img" alt="Infographic of the FAIR data principles"></p>
+<figcaption>The FAIR data principles</figcaption>
+</figure>
+</div>
+</section>
+<section id="best-practices-for-file-organisation" class="level2">
+<h2 class="anchored" data-anchor-id="best-practices-for-file-organisation">Best practices for file organisation</h2>
+<ul>
+<li>Keep a folder for the <strong>raw data</strong>, and never alter it.</li>
+<li>Keep code separate from data.</li>
+<li>Use a version control system (at least for code), e.g.&nbsp;git.</li>
+<li>Put a README in every directory describing its purpose and contents.</li>
+<li>Use file naming schemes that make files easy to find and understand, for humans and machines, and document them.</li>
+<li>Use non-proprietary formats: <code>.csv</code> rather than <code>.xlsx</code>.</li>
+</ul>
+</section>
+<section id="literate-programming" class="level2">
+<h2 class="anchored" data-anchor-id="literate-programming">Literate programming</h2>
+<ul>
+<li>Document your methods and workflows.</li>
+<li>Document where and when you downloaded data.</li>
+<li>Document the versions of the software you ran.</li>
+</ul>
+</section>
+<section id="git-cheat-sheet" class="level2">
+<h2 class="anchored" data-anchor-id="git-cheat-sheet">Git cheat sheet</h2>
+<p>Here are some git commands worth keeping handy.</p>
+<section id="getting-started" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started">Getting started</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> clone https://github.com/username/repo.git   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># clone a repo</span></span></code></pre></div></div>
+</section>
+<section id="basic-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="basic-workflow">Basic workflow</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> status                    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># see what changed</span></span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> add .                     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># stage all changes</span></span>
+<span id="cb2-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> commit <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-m</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"message"</span>       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># commit with a message</span></span>
+<span id="cb2-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> push                      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># push to GitHub</span></span>
+<span id="cb2-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> pull                      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># pull the latest changes</span></span></code></pre></div></div>
+</section>
+<section id="branches" class="level3">
+<h3 class="anchored" data-anchor-id="branches">Branches</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> branch                    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># list branches</span></span>
+<span id="cb3-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> branch new-branch         <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># create a new branch</span></span>
+<span id="cb3-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> checkout new-branch       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># switch to a branch</span></span>
+<span id="cb3-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> checkout <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-b</span> new-branch    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># create and switch in one go</span></span>
+<span id="cb3-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> push origin new-branch    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># push the branch to GitHub</span></span></code></pre></div></div>
+</section>
+<section id="undoing-changes" class="level3">
+<h3 class="anchored" data-anchor-id="undoing-changes">Undoing changes</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> restore filename          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># undo changes to a file</span></span>
+<span id="cb4-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> reset HEAD~1              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># undo last commit (keep changes)</span></span>
+<span id="cb4-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> revert HEAD               <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># undo last commit (by creating a new commit)</span></span></code></pre></div></div>
+</section>
+<section id="viewing-history" class="level3">
+<h3 class="anchored" data-anchor-id="viewing-history">Viewing history</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> log                       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># see commits</span></span>
+<span id="cb5-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> log <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--oneline</span>             <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># shorter view</span></span>
+<span id="cb5-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> diff                      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># see what changed</span></span></code></pre></div></div>
+</section>
+<section id="merging-branches" class="level3">
+<h3 class="anchored" data-anchor-id="merging-branches">Merging branches</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> checkout main             <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># switch to main</span></span>
+<span id="cb6-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> merge new-branch          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># merge the branch into main</span></span></code></pre></div></div>
+</section>
+<section id="stashing-temporary-save" class="level3">
+<h3 class="anchored" data-anchor-id="stashing-temporary-save">Stashing (temporary save)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> stash                     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># save changes temporarily</span></span>
+<span id="cb7-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> stash pop                 <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># restore them</span></span></code></pre></div></div>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>news</category>
+  <category>code</category>
+  <category>analysis</category>
+  <guid>https://vucka7.github.io/blog/posts/day_1/</guid>
   <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
-  <media:content url="https://vucka7.github.io/blog/posts/day_5/odissey_day2.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://vucka7.github.io/blog/posts/day_1/suitcase.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Welcome to my blog</title>
+  <dc:creator>Eva Rogelj</dc:creator>
+  <link>https://vucka7.github.io/blog/posts/welcome/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>This is the first post in a Quarto blog. Welcome!</p>
+<p><img src="https://vucka7.github.io/blog/posts/welcome/bean_intro.jpg" class="img-fluid"></p>
+<p>Another snack here: <img src="https://vucka7.github.io/blog/posts/welcome/kex.webp" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the snack doesn’t make sense, check the About page</p>
+
+
+</div>
+</div>
+
+ ]]></description>
+  <category>news</category>
+  <guid>https://vucka7.github.io/blog/posts/welcome/</guid>
+  <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
