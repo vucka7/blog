@@ -1,5 +1,5 @@
 ---
-title: "Every day life style"
+title: "Very cool blog about bioinformatics"
 listing:
   contents: posts
   feed: true
