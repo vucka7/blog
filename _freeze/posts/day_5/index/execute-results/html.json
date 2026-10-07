@@ -1,0 +1,15 @@
+{
+  "hash": "b172ce8318f3c60bb8ed60edf98cbede",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Day 5 of the short Odissey\"\nauthor: \"Eva Rogelj\"\ndate: \"2026-09-14\"\ncategories: [news, code, analysis]\nimage: \"odissey_day2.jpg\"\n---\n\nGigi plot this table!\n\nToday we learned about ggplot. The ggplot2 library is something that many are now already familiar with. I have recently found the tidyplots library [Quarto] (https://tidyplots.org/). It's very nice as it builds on top of ggplot.\n\nOne most important thing I have learned today was how to introduce a break into my y-axis. I can do that using the ggbreak library.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggbreak)\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nggbreak v0.1.7 Learn more at https://yulab-smu.top/\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nIf you use ggbreak in published research, please cite the following\npaper:\n\nS Xu, M Chen, T Feng, L Zhan, L Zhou, G Yu. Use ggbreak to effectively\nutilize plotting space to deal with large datasets and outliers.\nFrontiers in Genetics. 2021, 12:774846. doi: 10.3389/fgene.2021.774846\n```\n\n\n:::\n:::\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(merged_filtered %>% filter(Epitope %in% c(\"NANP5\", \"NPDP\")),\n       aes(x = factor(Timepoint), y = normalised, fill = Epitope)) +\n  geom_boxplot() +\n  labs(\n    x = \"Timepoint\",\n    y = \"Normalised ED50\",\n    title = \"Plasma antibody titres\"\n  ) +\n  theme_prism() +\n  theme(\n    plot.title = element_text(hjust = 0.5),\n    text = element_text(size = 14)\n  ) +\n  scale_y_break(breaks = c(10000, 20000), scales = 1, space = 1)\n\nggsave(\n  filename = paste0(figures.dir, \"boxplots_axis_break.png\"),\n  width = 6, height = 5, units = \"in\", dpi = 300\n)\n```\n:::\n\n\n![Example plot with a break between 10000 and 20000](boxplots_axis_break.png)",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

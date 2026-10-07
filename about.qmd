@@ -3,17 +3,11 @@ title: "About"
 image: bean_intro.jpg
 about:
   template: jolla
-  links:
-    - icon: bluesky
-      text: Bluesky
-      href: https://bsky.app/
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com
-    - icon: github
-      text: Github
-      href: https://github.com
+
 
 ---
 
-This blog is a daily recap of our Reproducible Research course
+I am Bean the Dog and this is a daily recap blog of our Reproducible Research course.
+
+Here's a snack before you get too far into the data analysis:
+![Snack](images_snickers.jpeg)

@@ -1,11 +1,43 @@
 ---
-title: "Day 2 of the short Odissey"
+title: "Day 5 of the short Odissey"
 author: "Eva Rogelj"
-date: "2026-09-14"
+date: "2026-09-18"
 categories: [news, code, analysis]
-image: "odissey_day2.jpg"
+image: "dog_stop_sign.jpeg"
 ---
 
-Day 2
-Lecture 1: setting up an environment. 
-Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)
+## Day 5: data visualisation
+Gigi plot this table!
+
+Pun intended! Today we learned about ggplot. The ggplot2 library is something that many are now already familiar with. I have recently found the tidyplots library [Quarto] (https://tidyplots.org/). It's very nice as it builds on top of ggplot.
+
+One most important thing I have learned today was how to introduce a break into my y-axis. I can do that using the ggbreak library.
+
+```{r}
+library(ggbreak)
+```
+
+```{r}
+#| eval: false
+ggplot(merged_filtered %>% filter(Epitope %in% c("NANP5", "NPDP")),
+       aes(x = factor(Timepoint), y = normalised, fill = Epitope)) +
+  geom_boxplot() +
+  labs(
+    x = "Timepoint",
+    y = "Normalised ED50",
+    title = "Plasma antibody titres"
+  ) +
+  theme_prism() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    text = element_text(size = 14)
+  ) +
+  scale_y_break(breaks = c(10000, 20000), scales = 1, space = 1)
+
+ggsave(
+  filename = paste0(figures.dir, "boxplots_axis_break.png"),
+  width = 6, height = 5, units = "in", dpi = 300
+)
+```
+
+![Example plot with a break between 10000 and 20000](boxplots_axis_break.png)

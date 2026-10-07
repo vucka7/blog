@@ -1,16 +1,16 @@
 ---
 title: "Day 4 of the 5-day Odissey"
 author: "Eva Rogelj"
-date: "2026-09-14"
+date: "2026-09-17"
 categories: [news, code, analysis]
 image: "odissey_day2.jpg"
 ---
 
 # Day 4: Pipelines - the horror: nf-core
 ## nfcore introduction
+Nf-core is a very active community around nextflow. Volunteers develop nextflow pipelines around a variety of bioinformatic data.
 [Nf-core link](https://nf-co.re/)
 
-Nf-core is a very active community around nextflow. Volunteers develop nextflow pipelines around a variety of bioinformatic data.
 
 All nf-core pipelines are open source and the source code is available on github. The pipelines are developed by volunteers, who can have a very varied background.
 
@@ -75,12 +75,11 @@ process {
 ```
 
 I ran the test data with airrflow
+
 ```{.bash}
 #| eval: false
 nextflow run nf-core/airrflow -r 5.1.1 -profile test --outdir <OUTDIR>
 ```
+![Airrflow_workflow_overview](airrflow_workflow_overview.png)
 
-```{=html}
-<iframe src="Airrflow%20results%20summary%20report.pdf" width="100%" height="800px"></iframe>
-```
 

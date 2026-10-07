@@ -1,84 +1,100 @@
 ---
-title: "Day 1 of the 5-day Odissey"
+title: "Day 1 of the 5-day Odyssey"
 author: "Eva Rogelj"
 date: "2026-09-14"
 categories: [news, code, analysis]
 image: "suitcase.jpeg"
 ---
 
-Day 1 - only beginning to dream about being a bioinformatician
+## Day 1: only beginning to dream about being a bioinformatician
 
-Data Management and reproducible research
-![Alt text](data_life_cycle.png)
+Today was all about **data management and reproducible research**: the habits that make an analysis something you (and others) can trust and repeat.
 
-FAIR principles
+![The research data life cycle](data_life_cycle.png){fig-alt="Diagram of the research data life cycle"}
 
-FAIR principles rely on good data management practices in all phases of research:
+## FAIR principles
 
-Research documentation
-Data organisation
-Information security
-Ethics and legislation
+Data should be **F**indable, **A**ccessible, **I**nteroperable and **R**eusable. The FAIR principles rely on good data management in every phase of research:
 
-![Alt text](fair-data-principles.webp)
+- Research documentation
+- Data organisation
+- Information security
+- Ethics and legislation
 
-Best practices for file organisation
+![The FAIR data principles](fair-data-principles.webp){fig-alt="Infographic of the FAIR data principles"}
 
-- There is a folder for the raw data, which does not get altered.
-- Code is kept separate from data.
-- Use a version control system (at least for code) – e.g. git.
-- There should be a README in every directory, describing the purpose of the directory and its contents.
-- Use file naming schemes that makes it easy to find files and understand what they are (for humans and machines) and document them.
-- Use non-proprietary formats – .csv rather than .xlsx
+## Best practices for file organisation
 
-Literate programming
+- Keep a folder for the **raw data**, and never alter it.
+- Keep code separate from data.
+- Use a version control system (at least for code), e.g. git.
+- Put a README in every directory describing its purpose and contents.
+- Use file naming schemes that make files easy to find and understand, for humans and machines, and document them.
+- Use non-proprietary formats: `.csv` rather than `.xlsx`.
+
+## Literate programming
+
 - Document your methods and workflows.
 - Document where and when you downloaded data.
-- Document the versions of the software that you ran.
+- Document the versions of the software you ran.
 
-Future learnings in the course:
-- Version control
-- environment managers
-- containers in bioinformatics
-- workflow manager
 
-Github:
-Useful commands:
+## Git cheat sheet
 
-```{r}
-#| eval: false
-# CLONE A REPO
-git clone https://github.com/username/repo.git
+Here are some git commands worth keeping handy.
 
-# BASIC WORKFLOW
-git status                    # See what changed
-git add .                     # Stage all changes
-git commit -m "message"       # Commit with message
-git push                      # Push to GitHub
-git pull                      # Pull latest changes
+### Getting started
 
-# BRANCHES
-git branch                    # List branches
-git branch new-branch         # Create new branch
-git checkout new-branch       # Switch to branch
-git checkout -b new-branch    # Create and switch
-git push origin new-branch    # Push branch to GitHub
+```bash
+git clone https://github.com/username/repo.git   # clone a repo
+```
 
-# UNDO CHANGES
-git restore filename          # Undo changes to file
-git reset HEAD~1              # Undo last commit (keep changes)
-git revert HEAD               # Undo last commit (create new commit)
+### Basic workflow
 
-# VIEW HISTORY
-git log                       # See commits
-git log --oneline             # Shorter view
-git diff                      # See what changed
+```bash
+git status                    # see what changed
+git add .                     # stage all changes
+git commit -m "message"       # commit with a message
+git push                      # push to GitHub
+git pull                      # pull the latest changes
+```
 
-# MERGE BRANCHES
-git checkout main             # Switch to main
-git merge new-branch          # Merge branch into main
+### Branches
 
-# STASH (TEMPORARY SAVE)
-git stash                     # Save changes temporarily
-git stash pop                 # Restore changes
+```bash
+git branch                    # list branches
+git branch new-branch         # create a new branch
+git checkout new-branch       # switch to a branch
+git checkout -b new-branch    # create and switch in one go
+git push origin new-branch    # push the branch to GitHub
+```
+
+### Undoing changes
+
+```bash
+git restore filename          # undo changes to a file
+git reset HEAD~1              # undo last commit (keep changes)
+git revert HEAD               # undo last commit (by creating a new commit)
+```
+
+### Viewing history
+
+```bash
+git log                       # see commits
+git log --oneline             # shorter view
+git diff                      # see what changed
+```
+
+### Merging branches
+
+```bash
+git checkout main             # switch to main
+git merge new-branch          # merge the branch into main
+```
+
+### Stashing (temporary save)
+
+```bash
+git stash                     # save changes temporarily
+git stash pop                 # restore them
 ```

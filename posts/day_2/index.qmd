@@ -1,68 +1,74 @@
 ---
-title: "Day 2 of the 5-day Odissey"
+title: "Day 2 of the 5-day Odyssey"
 author: "Eva Rogelj"
-date: "2026-09-14"
+date: "2026-09-15"
 categories: [news, code, analysis]
 image: "odissey_day2.jpg"
 ---
 
-Day 2
-Lecture 1: setting up an environment. 
-Pixi [Quarto] (https://pixi.prefix.dev/latest/workspace/environment/)
+## Day 2: Setting up an environment
 
-```{r}
-#| eval: false
+Today we talked about reproducible environments with [Pixi](https://pixi.prefix.dev/latest/workspace/environment/).
+
+### Installing Pixi
+
+```bash
 wget -qO- https://pixi.sh/install.sh | sh
 ```
 
-Everytime you need to initiate a pixi environment in the same folder, you're working in
+### Creating an environment
 
-```{r}
-#| eval: false
+Run this once in the folder you're working in:
+
+```bash
 pixi init name_pixi_training -c conda-forge -c bioconda
 ```
 
-There will be a pixi.toml file. It would look a little like this
+This creates a `pixi.toml` file, which looks something like this:
 
-```{r}
-#| eval: false
-1[workspace]
-2channels = ["conda-forge", "bioconda"]
-3name = "amrei_pixi_training"
-4platforms = ["linux-64"]
+```toml
+[workspace] # <1>
+channels = ["conda-forge", "bioconda"] # <2>
+name = "name_pixi_training" # <3>
+platforms = ["linux-64"] # <4>
 version = "0.1.0"
 
-5[tasks]
+[tasks] # <5>
 
-6[dependencies]
+[dependencies] # <6>
 ```
 
-1 Overview section of the environment.
-2 Added channels - these are the sources we allow for our dependencies/ tools.
-3 The name of the environment.
-4
-Operating system the environment is optimised for.
-5
-This is where we can define tasks - interesting, but not covered in this course.
-6
-Here will be the list of tool installed within the environment (once we have added them).
+1. Overview section of the environment.
+2. Channels: the sources we allow our tools and dependencies to come from.
+3. The name of the environment.
+4. The operating system the environment is optimised for.
+5. Where tasks can be defined
+6. The list of tools installed in the environment.
 
-pixi.lock
-The .lock file give you information on the channels you have decided to add, as well as the information on where the packages were downloaded from, license information, md5 information, and more.
+### The lock file
 
-IMPORTANT: Do not delete the .toml or .lock files, or you will break your environment!
+`pixi.lock` record of the channels and package source, license information, md5 checksums, and more.
 
-If you want to add a dependency, you use add
+::: {.callout-important}
+Do not delete the `pixi.toml` or `pixi.lock` files. It breaks the environment, which will make you sad :(
+:::
 
-```{r}
-#| eval: false
+### Using the environment
+
+Add a dependency with `add`:
+
+```bash
 pixi add quarto
 ```
 
-You could enter an environment with 
-```{r}
-#| eval: false
+Enter the environment:
+
+```bash
 pixi shell
 ```
 
-You exit the environment with exit
+Leave it again with:
+
+```bash
+exit
+```
